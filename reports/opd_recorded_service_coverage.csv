@@ -1,0 +1,6 @@
+﻿source_activity,source_rows,recorded_appointments,all_appointments,recorded_appointment_pct,interpretation
+appointment,62422,49912,49912,100.0,"Recorded associations, not eligible-pathway completion or abandonment"
+imaging,5523,5323,49912,10.665,"Recorded associations, not eligible-pathway completion or abandonment"
+lab,18029,6370,49912,12.762,"Recorded associations, not eligible-pathway completion or abandonment"
+pharmacy,302,108,49912,0.216,"Recorded associations, not eligible-pathway completion or abandonment"
+prescription,62422,49912,49912,100.0,"Recorded associations, not eligible-pathway completion or abandonment"

@@ -1,0 +1,175 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Healthcare Friction — Step 1</title><style>body{margin:36px auto;max-width:1500px;padding:0 24px;background:#f7f9fc;color:#15253a;font:16px/1.6 system-ui}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:white;padding:28px;border:1px solid #d8e1ea;border-radius:10px;font:14px/1.6 ui-monospace,monospace}</style><h1>Healthcare Friction Observatory</h1><p>Revised data collection and exploration report</p><pre># Data quality and source suitability report
+
+Healthcare Friction Observatory. Revised Step 1. Verified on 2026-11-16T14:29:40.275388+00:00.
+
+## Decision and scale
+
+Use HospitalOPD as the main recorded outpatient-workflow source and the radiology simulation as a separate resource/queue benchmark.
+HospitalOPD is described by its publisher as anonymized observational data; its collection and timestamp semantics were not independently audited.
+Radiology is explicitly synthetic. No new patients were generated and no source rows were repeated to inflate dataset size.
+
+The package contains 49,912 distinct OPD appointments for 39,442 patients in 62,422 wide source rows.
+Radiology adds 27,343 event rows, 3,503 exams, 3,193 completed-case summaries and 50,375 resource snapshots.
+The prepared event view contains 151,319 source record variants across the two systems. This is not a patient count or a count of independent observations.
+The old Synthea and small emergency datasets remain in the original project folder as prior work. They are excluded from this package&#x27;s active data and KPIs.
+
+## Loading size
+
+Full downloads, including documentation/image/configuration: 16.06 MiB.
+Prepared gzip CSVs: 10.16 MiB. All raw CSV dataframes together: 126.58 MiB as measured by pandas deep memory usage.
+Prepared event dataframe: 152.02 MiB. These are object sizes, not peak process RAM; joins and copies need extra memory.
+Load one prepared file at a time, or use read_csv(..., chunksize=50000). No patient sampling was required.
+Dates and categoricals can be converted after selecting columns. The notebook does not load the old datasets.
+
+## Inventory
+
+| source | table | rows | columns | exact_duplicates_after_first |
+| --- | --- | --- | --- | --- |
+| opd | HospitalOPD-noname | 62422 | 25 | 0 |
+| radiology | cases | 3193 | 11 | 0 |
+| radiology | Escenario_Examinacion_CBCT-1_usage | 2015 | 8 | 0 |
+| radiology | Escenario_Examinacion_CT-1_usage | 2015 | 8 | 0 |
+| radiology | Escenario_Examinacion_CT-2_usage | 2015 | 8 | 0 |
+| radiology | Escenario_Examinacion_MAMMO-1_usage | 2015 | 8 | 0 |
+| radiology | Escenario_Examinacion_Maquina_Rayos_X-1_usage | 2015 | 8 | 0 |
+| radiology | Escenario_Examinacion_Maquina_Rayos_X-2_usage | 2015 | 8 | 0 |
+| radiology | Escenario_Examinacion_Maquina_Rayos_X-3_usage | 2015 | 8 | 0 |
+| radiology | Escenario_Examinacion_Maquina_Rayos_X-4_usage | 2015 | 8 | 0 |
+| radiology | Escenario_Examinacion_Maquina_Rayos_X-5_usage | 2015 | 8 | 0 |
+| radiology | Escenario_Examinacion_MRI-1_usage | 2015 | 8 | 0 |
+| radiology | Escenario_Examinacion_MRI-2_usage | 2015 | 8 | 0 |
+| radiology | Escenario_Examinacion_MRI-3_usage | 2015 | 8 | 0 |
+| radiology | Escenario_Examinacion_MRI-4_usage | 2015 | 8 | 0 |
+| radiology | Escenario_Examinacion_OTROS_RECURSOS_usage | 2015 | 8 | 0 |
+| radiology | Escenario_Examinacion_SILLA_CBCT_usage | 2015 | 8 | 0 |
+| radiology | Escenario_Examinacion_SILLA_CT_usage | 2015 | 8 | 0 |
+| radiology | Escenario_Examinacion_SILLA_MAMMO_usage | 2015 | 8 | 0 |
+| radiology | Escenario_Examinacion_SILLA_MRI_usage | 2015 | 8 | 0 |
+| radiology | Escenario_Examinacion_SILLA_RAYOS_usage | 2015 | 8 | 0 |
+| radiology | Escenario_Examinacion_SILLA_US_usage | 2015 | 8 | 0 |
+| radiology | Escenario_Examinacion_US-1_usage | 2015 | 8 | 0 |
+| radiology | Escenario_Examinacion_US-2_usage | 2015 | 8 | 0 |
+| radiology | Escenario_Examinacion_US-3_usage | 2015 | 8 | 0 |
+| radiology | Escenario_Examinacion_US-4_usage | 2015 | 8 | 0 |
+| radiology | Escenario_Examinacion_US-5_usage | 2015 | 8 | 0 |
+| radiology | events | 27343 | 9 | 0 |
+| radiology | exams | 3503 | 8 | 0 |
+
+## Important findings and actions
+
+| Issue | Evidence / meaning | Required handling |
+| --- | --- | --- |
+| OPD row grain | Multiple prescriptions/services repeat appointment data | Count visits by appointment_id, not raw rows. Use the stage-grain audit. |
+| Incomplete lab end timestamps | 4,702 nonempty source lab_end_datetime values fail the documented date parser, including fragments such as 53:45.0 | Keep raw values, leave parsed end time/duration missing, and exclude from duration denominators. Do not invent a date or hour. |
+| Cross-appointment service associations | Some lab and imaging IDs occur against multiple appointments | Retain lineage. Leave the prepared case_key null for ambiguous natural IDs. Do not count them as independently completed services in every visit. |
+| Multiple payload variants | Some natural service IDs have different labels/times | Retain distinct payloads, flag them and exclude from default interval summaries pending grain confirmation. |
+| Negative prescription intervals | See exact source-row counts below | Quarantine for duration reporting; do not swap endpoints automatically. |
+| Case-level radiology wait has a different scope | Many case totals exceed summed exam waits | Do not substitute case total_wait_time for exam waiting. The exam wait values are independently checked against queue-entry and scan-start timestamps. |
+| Missing radiology case summaries | 61 event-log cases lack completed-case summaries | Retain events and mark outcome unknown. Possible window truncation is not proven abandonment. |
+| Resource calendar mismatch | Resource logs start Monday; Jan 1, 2023 case events start Sunday | Use relative resource time only. Do not join resource snapshots to event calendar dates without confirmation. |
+| Small pharmacy coverage | See recorded service coverage | Report sample size and missing applicability; avoid unstable pharmacy rankings. |
+| OPD service availability differs over time | Lab, imaging and pharmacy have shorter observed coverage than appointments | Compare periods with matched coverage; do not read early blanks as no demand. |
+| Source names are not physical queue states | Prescription and appointment timestamps have limited definitions | Label appointment-to-prescription gap as a proxy. Never call it verified door-to-doctor wait. |
+
+## Checks and evidence
+
+472 rules executed. 12 rules flag records/groups. Counts below use each rule&#x27;s stated denominator; flagged counts overlap and must not be added as unique bad rows.
+Raw files passed published SHA-256 checks. All source rows remain available. Source record examples are located by file and row position in anomaly_record_positions.csv.
+
+| table | rule | evaluated | flagged | interpretation |
+| --- | --- | --- | --- | --- |
+| opd.HospitalOPD-noname | lab_end_datetime: parse | 18029 | 4702 |  |
+| opd.HospitalOPD-noname | duplicate_business_row_excluding_record_no | 62422 | 4 |  |
+| opd.HospitalOPD-noname | prescription: end_before_start | 62409 | 52 |  |
+| opd.HospitalOPD-noname | prescription: start_before_appointment | 62410 | 5 | An association or date issue; do not interpret negative gaps as waiting. |
+| opd.HospitalOPD-noname | lab: start_before_appointment | 18029 | 457 | An association or date issue; do not interpret negative gaps as waiting. |
+| opd.HospitalOPD-noname | imaging: start_before_appointment | 5523 | 295 | An association or date issue; do not interpret negative gaps as waiting. |
+| opd.HospitalOPD-noname | lab: natural_id_multiple_visits | 17083 | 606 | Retain associations in lineage; do not assign these records to a single visit. |
+| opd.HospitalOPD-noname | lab: natural_id_multiple_payloads | 17083 | 630 | Keep variants. Excluded from default interval summaries until source grain is resolved. |
+| opd.HospitalOPD-noname | imaging: natural_id_multiple_visits | 5360 | 60 | Retain associations in lineage; do not assign these records to a single visit. |
+| opd.HospitalOPD-noname | pharmacy: natural_id_multiple_payloads | 262 | 36 | Keep variants. Excluded from default interval summaries until source grain is resolved. |
+| radiology.events | case_missing_from_case_summary | 27343 | 376 | Incomplete/snapshot-boundary cases are possible. This is not an abandonment indicator. |
+| radiology.cases | total_wait_time: disagrees_with_exam_aggregate | 3193 | 1894 | Case-level wait scope differs from exam-level sums; do not use it as an exam-wait KPI. |
+
+## Missing values
+
+Only empty/whitespace values become missing during parsing. Literal None is preserved in the raw radiology modality field because it means not applicable.
+Optional OPD stage columns are often structurally absent. A requested-but-not-completed service cannot be distinguished from not-required using blanks alone.
+The empty Unnamed: 2 column in OPD is a file artifact. It is omitted from prepared tables but documented in the raw dictionary.
+Clinician names are preserved in the licensed raw file but omitted from prepared records; provider IDs remain available.
+
+| column | missing | missing_pct | invalid_nonempty |
+| --- | --- | --- | --- |
+| Unnamed: 2 | 62422 | 100.0 | 0 |
+| prescription_start_datetime | 12 | 0.019 | 0 |
+| prescription_end_datetime | 1 | 0.002 | 0 |
+| lab_id | 44393 | 71.118 | 0 |
+| lab_name | 44393 | 71.118 | 0 |
+| lab_start_datetime | 44393 | 71.118 | 0 |
+| lab_end_datetime | 44393 | 71.118 | 4702 |
+| imaging_request_id | 56899 | 91.152 | 0 |
+| imaging_result_id | 56899 | 91.152 | 0 |
+| imaging_name | 56899 | 91.152 | 0 |
+| imaging_start_datetime | 56899 | 91.152 | 0 |
+| imaging_end_datetime | 56909 | 91.168 | 0 |
+| pharmacy_sale_line_id | 62120 | 99.516 | 0 |
+| medicine_name | 62120 | 99.516 | 0 |
+| pharmacy_start_datetime | 62120 | 99.516 | 0 |
+| pharmacy_end_datetime | 62120 | 99.516 | 0 |
+
+## Safe integration
+
+1. OPD appointments map to patients within OPD only. Stage payloads are extracted without cross-multiplying lab, imaging, prescription and pharmacy rows.
+2. Every extracted OPD payload links back to all of its source rows and candidate appointments through opd_event_lineage.csv.gz.
+3. Radiology events join cases and exams using validated many-to-one joins. Event row counts are preserved. Orphan case summaries remain missing.
+4. The common event file is a UNION with source_system and source_nature. It is not one hospital population. Patient and case IDs are namespaced.
+5. Resource snapshots are a separate fact-like table at resource/relative-time grain, not attached to patients. No unsupported date alignment is applied.
+
+Never sum repeated case or exam measures in radiology_events_with_context. Aggregate case/exam measures in their own tables.
+Do not pool OPD and radiology elapsed times into an overall hospital average.
+
+## What the six project questions can support
+
+| Question | Support in revised package | Remaining limit |
+| --- | --- | --- |
+| Wait before doctor | OPD appointment-to-prescription-start gap is calculable after visit filtering | A proxy only: appointment timestamp is not confirmed physical arrival; prescription start is not confirmed physician contact. |
+| Longest waiting stage | Radiology has explicit exam wait and scan duration, grouped by modality | OPD service durations/gaps are different metrics and must not be ranked as the same queue wait. |
+| Lab bottleneck | OPD lab intervals and workload patterns for valid, unambiguous records | No separate lab queue-entry/service-start or lab staffing. Call findings long recorded turnaround, not proven capacity shortage. |
+| Journey noncompletion | Missing summaries and service coverage can be reported | No validated abandonment/disposition field or intended-route denominator. Do not publish abandonment rates. |
+| Resource sufficiency | Radiology capacity, available-unit snapshots, queues and configuration | Synthetic benchmark; snapshot occupancy is approximate and calendar alignment remains unresolved. |
+| Add a staff member/device | Radiology arrival/service distributions and resource configuration support model development | Person 5 must implement and validate a simulator; no causal improvement percentages are claimed here. |
+
+## Exploratory queue evidence
+
+The table below uses explicit wait_before_exam values that agree with (scan start minus matching event start).
+The exam interval end minus start also agrees with scan_time_duration. The enclosing event interval includes wait plus scan.
+Only validated exam waits enter this table. These are synthetic baseline statistics, not actual hospital performance.
+
+| modality | exams | median_wait_minutes | mean_wait_minutes | p95_wait_minutes |
+| --- | --- | --- | --- | --- |
+| CBCT | 17 | 0.0 | 0.588 | 2.0 |
+| CT | 417 | 10.0 | 16.412 | 56.2 |
+| MRI | 521 | 8.0 | 13.848 | 45.0 |
+| Mammo | 141 | 3.0 | 13.574 | 55.0 |
+| Other | 392 | 0.0 | 0.133 | 0.0 |
+| US | 587 | 0.0 | 6.145 | 20.0 |
+| X-ray | 1428 | 2.0 | 4.377 | 10.0 |
+
+## Source selection and limits
+
+- [HospitalOPD v1](https://data.mendeley.com/datasets/j2hd2239dr/1), DOI 10.17632/j2hd2239dr.1, CC BY 4.0. Main outpatient source. Full source retained.
+- [Radiology workflow simulation v2](https://data.mendeley.com/datasets/jsg8c4yhxy/2), DOI 10.17632/jsg8c4yhxy.2, CC BY 4.0. Supporting queue/resource source. Full source retained.
+- A larger [research ED event log](https://zenodo.org/records/18785676) was considered, but download requests were blocked by the host&#x27;s unusual-traffic filter. Its content was not profiled or included.
+- A [1.55-million-event synthetic hospital dataset](https://huggingface.co/datasets/AuricGrid-Laboratory/E3.H2-Synthetic_Hospital_Operations_Environment) requires manual access approval and is approximately 500 MB CSV. Not included.
+- MIMIC-IV requires credentialed access and is not needed for this manageable Step 1 package.
+
+More rows do not repair missing timestamps, invalid linkage or unrepresentative source assumptions.
+No dataset here establishes Egyptian hospital performance. Report source-specific findings and denominators.
+
+## Reproducibility and handoff
+
+Python 3.12.14; pandas 3.0.1; NumPy 2.3.5.
+Source hashes and URLs: data/metadata/sources.json. Full outputs: reports/ and data/exploration/.
+Run scripts/download.py then scripts/explore.py from step1_v2, or use the self-contained notebook.
+The prepared tables are exploratory exports with flags and lineage; production ETL and warehouse design remain the next teammates&#x27; responsibility.
+</pre></html>

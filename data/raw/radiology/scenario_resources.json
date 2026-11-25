@@ -1,0 +1,289 @@
+{
+  "scenario_id": "Radiology_Workflow_Base_Scenario",
+  "description": "Resource configuration for the radiology workflow simulation, including staff, auxiliary resources and imaging equipment.",
+  "resources": {
+    "staff": {
+      "front_office_receptionists": {
+        "resource_type": "RECEPCIONISTA_FO",
+        "total_units": 3,
+        "description": "Front-office reception staff handling patient registration."
+      },
+      "back_office_receptionists": {
+        "resource_type": "RECEPCIONISTA_BO",
+        "total_units": 7,
+        "description": "Back-office administrative staff handling orders and reporting."
+      },
+      "nurses": {
+        "resource_type": "ENFERMERO",
+        "total_units": 3,
+        "description": "Nursing staff for contrast administration and patient preparation."
+      }
+    },
+    "auxiliary_resources": {
+      "OTROS_RECURSOS": 4,
+      "SILLA_RAYOS": 20,
+      "SILLA_CT": 15,
+      "SILLA_MAMMO": 15,
+      "SILLA_MRI": 15,
+      "SILLA_US": 15,
+      "SILLA_CBCT": 15
+    },
+    "imaging_equipment": {
+      "X_RAY": {
+        "resource_name": "X-ray",
+        "prototypes": [
+          "Maquina_Rayos_X-1",
+          "Maquina_Rayos_X-2",
+          "Maquina_Rayos_X-3",
+          "Maquina_Rayos_X-4",
+          "Maquina_Rayos_X-5"
+        ],
+        "schedules": [
+          {
+            "availability": {
+              "start_time": "00:00",
+              "end_time": "23:59",
+              "active_days": "ALL_DAYS"
+            },
+            "concurrent_units": 1,
+            "assigned_prototypes": [
+              "Maquina_Rayos_X-1",
+              "Maquina_Rayos_X-3"
+            ]
+          },
+          {
+            "availability": {
+              "start_time": "00:00",
+              "end_time": "23:59",
+              "active_days": [
+                "MONDAY",
+                "TUESDAY",
+                "WEDNESDAY",
+                "THURSDAY",
+                "FRIDAY"
+              ]
+            },
+            "concurrent_units": 1,
+            "assigned_prototypes": [
+              "Maquina_Rayos_X-2"
+            ]
+          },
+          {
+            "availability": {
+              "start_time": "08:00",
+              "end_time": "18:00",
+              "active_days": [
+                "MONDAY",
+                "TUESDAY",
+                "WEDNESDAY",
+                "THURSDAY",
+                "FRIDAY"
+              ]
+            },
+            "concurrent_units": 1,
+            "assigned_prototypes": [
+              "Maquina_Rayos_X-4",
+              "Maquina_Rayos_X-5"
+            ]
+          }
+        ]
+      },
+      "CT": {
+        "resource_name": "CT",
+        "prototypes": [
+          "CT-1",
+          "CT-2"
+        ],
+        "schedules": [
+          {
+            "availability": {
+              "start_time": "00:00",
+              "end_time": "23:59",
+              "active_days": "ALL_DAYS"
+            },
+            "concurrent_units": 1,
+            "assigned_prototypes": [
+              "CT-2"
+            ]
+          },
+          {
+            "availability": {
+              "start_time": "08:00",
+              "end_time": "18:00",
+              "active_days": [
+                "MONDAY",
+                "TUESDAY",
+                "WEDNESDAY",
+                "THURSDAY",
+                "FRIDAY"
+              ]
+            },
+            "concurrent_units": 1,
+            "assigned_prototypes": [
+              "CT-1"
+            ]
+          }
+        ]
+      },
+      "CBCT": {
+        "resource_name": "CBCT",
+        "prototypes": [
+          "CBCT-1"
+        ],
+        "schedules": [
+          {
+            "availability": [
+              {
+                "start_time": "00:00",
+                "end_time": "23:59",
+                "active_days": [
+                  "MONDAY",
+                  "TUESDAY",
+                  "WEDNESDAY",
+                  "THURSDAY",
+                  "FRIDAY"
+                ]
+              },
+              {
+                "start_time": "08:00",
+                "end_time": "11:00",
+                "active_days": [
+                  "SATURDAY",
+                  "SUNDAY"
+                ]
+              },
+              {
+                "start_time": "13:00",
+                "end_time": "17:00",
+                "active_days": [
+                  "SATURDAY",
+                  "SUNDAY"
+                ]
+              }
+            ],
+            "concurrent_units": 1,
+            "assigned_prototypes": [
+              "CBCT-1"
+            ]
+          }
+        ]
+      },
+      "MAMMO": {
+        "resource_name": "Mammography",
+        "prototypes": [
+          "MAMMO-1"
+        ],
+        "schedules": [
+          {
+            "availability": {
+              "start_time": "00:00",
+              "end_time": "23:59",
+              "active_days": [
+                "MONDAY",
+                "TUESDAY",
+                "WEDNESDAY",
+                "THURSDAY",
+                "FRIDAY"
+              ]
+            },
+            "concurrent_units": 1,
+            "assigned_prototypes": [
+              "MAMMO-1"
+            ]
+          }
+        ]
+      },
+      "MRI": {
+        "resource_name": "MRI",
+        "prototypes": [
+          "MRI-1",
+          "MRI-2",
+          "MRI-3",
+          "MRI-4"
+        ],
+        "schedules": [
+          {
+            "availability": {
+              "start_time": "07:00",
+              "end_time": "22:00",
+              "active_days": [
+                "MONDAY",
+                "TUESDAY",
+                "WEDNESDAY",
+                "THURSDAY",
+                "FRIDAY"
+              ]
+            },
+            "concurrent_units": 1,
+            "assigned_prototypes": [
+              "MRI-1",
+              "MRI-2",
+              "MRI-3",
+              "MRI-4"
+            ]
+          },
+          {
+            "availability": {
+              "start_time": "07:00",
+              "end_time": "21:00",
+              "active_days": [
+                "SATURDAY",
+                "SUNDAY"
+              ]
+            },
+            "concurrent_units": 1,
+            "assigned_prototypes": [
+              "MRI-1",
+              "MRI-2",
+              "MRI-3",
+              "MRI-4"
+            ]
+          }
+        ]
+      },
+      "US": {
+        "resource_name": "Ultrasound",
+        "prototypes": [
+          "US-1",
+          "US-2",
+          "US-3",
+          "US-4",
+          "US-5"
+        ],
+        "schedules": [
+          {
+            "availability": {
+              "start_time": "00:00",
+              "end_time": "23:59",
+              "active_days": "ALL_DAYS"
+            },
+            "concurrent_units": 1,
+            "assigned_prototypes": [
+              "US-1",
+              "US-4"
+            ]
+          },
+          {
+            "availability": {
+              "start_time": "08:00",
+              "end_time": "17:00",
+              "active_days": [
+                "MONDAY",
+                "TUESDAY",
+                "WEDNESDAY",
+                "THURSDAY",
+                "FRIDAY"
+              ]
+            },
+            "concurrent_units": 1,
+            "assigned_prototypes": [
+              "US-2",
+              "US-3",
+              "US-5"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

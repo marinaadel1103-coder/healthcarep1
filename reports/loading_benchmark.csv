@@ -1,0 +1,9 @@
+file,mode,rows,columns,load_seconds,dataframe_mib,compressed_mib
+events.csv.gz,full,151319,22,0.5527,153.196,5.494
+opd_visits.csv.gz,full,49912,7,0.0551,18.715,0.732
+opd_event_lineage.csv.gz,full,148698,5,0.168,44.668,3.147
+radiology_exams.csv.gz,full,3503,18,0.0137,2.804,0.079
+radiology_events_with_context.csv.gz,full,27343,14,0.0445,20.51,0.277
+resource_snapshots.csv.gz,full,50375,14,0.0465,14.404,0.391
+events.csv.gz,selected_columns,151319,5,0.2427,26.362,5.494
+events.csv.gz,50000_row_chunks,151319,22,0.7874,51.878,5.494

@@ -1,0 +1,60 @@
+﻿table,rule,zero_based_index,csv_record_including_header
+opd.HospitalOPD-noname,lab_end_datetime: parse,4001,4003
+opd.HospitalOPD-noname,lab_end_datetime: parse,4002,4004
+opd.HospitalOPD-noname,lab_end_datetime: parse,4003,4005
+opd.HospitalOPD-noname,lab_end_datetime: parse,4011,4013
+opd.HospitalOPD-noname,lab_end_datetime: parse,4046,4048
+opd.HospitalOPD-noname,duplicate_business_row_excluding_record_no,30014,30016
+opd.HospitalOPD-noname,duplicate_business_row_excluding_record_no,30016,30018
+opd.HospitalOPD-noname,duplicate_business_row_excluding_record_no,40613,40615
+opd.HospitalOPD-noname,duplicate_business_row_excluding_record_no,40615,40617
+opd.HospitalOPD-noname,prescription: end_before_start,2825,2827
+opd.HospitalOPD-noname,prescription: end_before_start,3225,3227
+opd.HospitalOPD-noname,prescription: end_before_start,4221,4223
+opd.HospitalOPD-noname,prescription: end_before_start,5333,5335
+opd.HospitalOPD-noname,prescription: end_before_start,6315,6317
+opd.HospitalOPD-noname,prescription: start_before_appointment,21503,21505
+opd.HospitalOPD-noname,prescription: start_before_appointment,22916,22918
+opd.HospitalOPD-noname,prescription: start_before_appointment,30295,30297
+opd.HospitalOPD-noname,prescription: start_before_appointment,34794,34796
+opd.HospitalOPD-noname,prescription: start_before_appointment,35224,35226
+opd.HospitalOPD-noname,lab: start_before_appointment,59,61
+opd.HospitalOPD-noname,lab: start_before_appointment,60,62
+opd.HospitalOPD-noname,lab: start_before_appointment,122,124
+opd.HospitalOPD-noname,lab: start_before_appointment,123,125
+opd.HospitalOPD-noname,lab: start_before_appointment,124,126
+opd.HospitalOPD-noname,imaging: start_before_appointment,375,377
+opd.HospitalOPD-noname,imaging: start_before_appointment,486,488
+opd.HospitalOPD-noname,imaging: start_before_appointment,535,537
+opd.HospitalOPD-noname,imaging: start_before_appointment,650,652
+opd.HospitalOPD-noname,imaging: start_before_appointment,660,662
+opd.HospitalOPD-noname,lab: natural_id_multiple_visits,100323,
+opd.HospitalOPD-noname,lab: natural_id_multiple_visits,100828,
+opd.HospitalOPD-noname,lab: natural_id_multiple_visits,101395,
+opd.HospitalOPD-noname,lab: natural_id_multiple_visits,105933,
+opd.HospitalOPD-noname,lab: natural_id_multiple_visits,106038,
+opd.HospitalOPD-noname,lab: natural_id_multiple_payloads,100323,
+opd.HospitalOPD-noname,lab: natural_id_multiple_payloads,100828,
+opd.HospitalOPD-noname,lab: natural_id_multiple_payloads,101395,
+opd.HospitalOPD-noname,lab: natural_id_multiple_payloads,105933,
+opd.HospitalOPD-noname,lab: natural_id_multiple_payloads,106038,
+opd.HospitalOPD-noname,imaging: natural_id_multiple_visits,50202,
+opd.HospitalOPD-noname,imaging: natural_id_multiple_visits,51782,
+opd.HospitalOPD-noname,imaging: natural_id_multiple_visits,52004,
+opd.HospitalOPD-noname,imaging: natural_id_multiple_visits,52148,
+opd.HospitalOPD-noname,imaging: natural_id_multiple_visits,52188,
+opd.HospitalOPD-noname,pharmacy: natural_id_multiple_payloads,1009620,
+opd.HospitalOPD-noname,pharmacy: natural_id_multiple_payloads,1013117,
+opd.HospitalOPD-noname,pharmacy: natural_id_multiple_payloads,1038970,
+opd.HospitalOPD-noname,pharmacy: natural_id_multiple_payloads,1049314,
+opd.HospitalOPD-noname,pharmacy: natural_id_multiple_payloads,1049316,
+radiology.events,case_missing_from_case_summary,935,937
+radiology.events,case_missing_from_case_summary,943,945
+radiology.events,case_missing_from_case_summary,964,966
+radiology.events,case_missing_from_case_summary,978,980
+radiology.events,case_missing_from_case_summary,985,987
+radiology.cases,total_wait_time: disagrees_with_exam_aggregate,42,44
+radiology.cases,total_wait_time: disagrees_with_exam_aggregate,43,45
+radiology.cases,total_wait_time: disagrees_with_exam_aggregate,44,46
+radiology.cases,total_wait_time: disagrees_with_exam_aggregate,45,47
+radiology.cases,total_wait_time: disagrees_with_exam_aggregate,46,48

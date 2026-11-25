@@ -1,0 +1,254 @@
+﻿source,table,column,description,expected_type,analysis_dtype,unit,missing,missing_pct,distinct_non_null,invalid_nonempty,missing_interpretation
+opd,HospitalOPD-noname,record_no,Source row identifier; not a patient or visit key.,string,string,identifier,0,0.0,62422,0,Field-specific; see description
+opd,HospitalOPD-noname,patient_id,Anonymized patient identifier within HospitalOPD only.,string,string,identifier,0,0.0,39442,0,Field-specific; see description
+opd,HospitalOPD-noname,Unnamed: 2,Empty source header/column artifact; remove only from prepared copies.,string,string,none,62422,100.0,0,0,Field-specific; see description
+opd,HospitalOPD-noname,appointment_id,Appointment identifier; repeats across source rows and is the candidate OPD visit key.,string,string,identifier,0,0.0,49912,0,Field-specific; see description
+opd,HospitalOPD-noname,appointment_start_datetime,Recorded appointment start; physical arrival is not established.,opd_datetime,datetime64[us],"local datetime, timezone unspecified",0,0.0,43305,0,Field-specific; see description
+opd,HospitalOPD-noname,prescription_doctor_id,Source clinician/account ID attached to the prescription record; not a roster or capacity.,string,string,identifier,0,0.0,98,0,Field-specific; see description
+opd,HospitalOPD-noname,prescription_doctor_name,"Source clinician/account label, including administrative labels. Excluded from prepared tables.",string,string,text,0,0.0,98,0,Field-specific; see description
+opd,HospitalOPD-noname,prescription_order_id,"Prescription-order identifier. A consultation proxy, not a guaranteed service-start event.",string,string,identifier,0,0.0,50568,0,Field-specific; see description
+opd,HospitalOPD-noname,prescription_start_datetime,Recorded prescription start timestamp. Workflow meaning is not independently verified; lab end includes malformed time fragments.,opd_datetime,datetime64[us],"local datetime, timezone unspecified",12,0.019,43384,0,Field-specific; see description
+opd,HospitalOPD-noname,prescription_end_datetime,Recorded prescription end timestamp. Workflow meaning is not independently verified; lab end includes malformed time fragments.,opd_datetime,datetime64[us],"local datetime, timezone unspecified",1,0.002,43261,0,Field-specific; see description
+opd,HospitalOPD-noname,lab_id,Source lab identifier. Multiple variants and appointment associations occur; global visit linkage is not guaranteed.,string,string,identifier,44393,71.118,17083,0,Usually not-applicable if service absent; otherwise review
+opd,HospitalOPD-noname,lab_name,Source laboratory service/test label.,string,string,text,44393,71.118,119,0,Usually not-applicable if service absent; otherwise review
+opd,HospitalOPD-noname,lab_start_datetime,Recorded lab start timestamp. Workflow meaning is not independently verified; lab end includes malformed time fragments.,opd_datetime,datetime64[us],"local datetime, timezone unspecified",44393,71.118,6414,0,Usually not-applicable if service absent; otherwise review
+opd,HospitalOPD-noname,lab_end_datetime,Recorded lab end timestamp. Workflow meaning is not independently verified; lab end includes malformed time fragments.,opd_datetime,datetime64[us],"local datetime, timezone unspecified",44393,71.118,11719,4702,Usually not-applicable if service absent; otherwise review
+opd,HospitalOPD-noname,imaging_request_id,Source imaging request identifier; some IDs link to multiple appointments.,string,string,identifier,56899,91.152,5360,0,Usually not-applicable if service absent; otherwise review
+opd,HospitalOPD-noname,imaging_result_id,Source imaging result identifier.,string,string,identifier,56899,91.152,5360,0,Usually not-applicable if service absent; otherwise review
+opd,HospitalOPD-noname,imaging_name,Source imaging service label.,string,string,text,56899,91.152,37,0,Usually not-applicable if service absent; otherwise review
+opd,HospitalOPD-noname,imaging_start_datetime,Recorded imaging start timestamp. Workflow meaning is not independently verified; lab end includes malformed time fragments.,opd_datetime,datetime64[us],"local datetime, timezone unspecified",56899,91.152,5270,0,Usually not-applicable if service absent; otherwise review
+opd,HospitalOPD-noname,imaging_end_datetime,Recorded imaging end timestamp. Workflow meaning is not independently verified; lab end includes malformed time fragments.,opd_datetime,datetime64[us],"local datetime, timezone unspecified",56909,91.168,5271,0,Usually not-applicable if service absent; otherwise review
+opd,HospitalOPD-noname,pharmacy_sale_line_id,Source pharmacy sale-line identifier; some IDs have multiple record variants.,string,string,identifier,62120,99.516,262,0,Usually not-applicable if service absent; otherwise review
+opd,HospitalOPD-noname,medicine_name,Source medication/item label. Not used to infer disease.,string,string,text,62120,99.516,154,0,Usually not-applicable if service absent; otherwise review
+opd,HospitalOPD-noname,pharmacy_start_datetime,Recorded pharmacy start timestamp. Workflow meaning is not independently verified; lab end includes malformed time fragments.,opd_datetime,datetime64[us],"local datetime, timezone unspecified",62120,99.516,112,0,Usually not-applicable if service absent; otherwise review
+opd,HospitalOPD-noname,pharmacy_end_datetime,Recorded pharmacy end timestamp. Workflow meaning is not independently verified; lab end includes malformed time fragments.,opd_datetime,datetime64[us],"local datetime, timezone unspecified",62120,99.516,118,0,Usually not-applicable if service absent; otherwise review
+opd,HospitalOPD-noname,flow_code,Source row-level pathway category. Not a documented intended treatment plan.,string,string,category,0,0.0,7,0,Field-specific; see description
+opd,HospitalOPD-noname,flow_name,Text for the recorded row-level pathway; a visit can have multiple row variants.,string,string,text,0,0.0,7,0,Field-specific; see description
+radiology,cases,case_id,Synthetic radiology visit identifier. Event log includes cases absent from the completed-case summary.,string,string,identifier,0,0.0,3193,0,Field-specific; see description
+radiology,cases,arrival_time,Synthetic case arrival timestamp.,utc_datetime,"datetime64[us, UTC]",UTC datetime,0,0.0,1162,0,Field-specific; see description
+radiology,cases,end_time,Synthetic case completion timestamp.,utc_datetime,"datetime64[us, UTC]",UTC datetime,0,0.0,2493,0,Field-specific; see description
+radiology,cases,patient_type,"Radiology category: A outpatient, S emergency, H inpatient, D day-hospital.",string,string,category,0,0.0,4,0,Field-specific; see description
+radiology,cases,exam_types,Source list-like text of modalities; preserve raw representation.,string,string,text list,0,0.0,13,0,Field-specific; see description
+radiology,cases,exam_count,Number of exams in the completed-case summary.,number,Int64,count,0,0.0,2,0,Field-specific; see description
+radiology,cases,total_wait_time,Source case-level wait summary. It exceeds summed exam waits in many cases; scope is unverified and not used for exam-wait KPIs.,hhmm,Int64,HH:MM duration,0,0.0,171,0,Field-specific; see description
+radiology,cases,total_scan_time,Source sum of scan durations for a completed case.,hhmm,Int64,HH:MM duration,0,0.0,36,0,Field-specific; see description
+radiology,cases,throughput_time,Source duration from case arrival to completion.,timedelta,timedelta64[us],days HH:MM:SS,0,0.0,222,0,Field-specific; see description
+radiology,cases,week_day_of_arrival,Weekday derived in source case summary; differs from resource-log calendar convention.,string,string,weekday,0,0.0,7,0,Field-specific; see description
+radiology,cases,hour_day_of_arrival,Hour of case arrival.,number,Int64,hour 0..23,0,0.0,24,0,Field-specific; see description
+radiology,Escenario_Examinacion_CBCT-1_usage,avgUsage,Source usage statistic. Averaging-window semantics are not specified; not used as instantaneous occupancy.,number,Float64,source ratio,0,0.0,1079,0,Field-specific; see description
+radiology,Escenario_Examinacion_CBCT-1_usage,avail,Available units at the resource snapshot.,number,Int64,units,0,0.0,2,0,Field-specific; see description
+radiology,Escenario_Examinacion_CBCT-1_usage,limit,Total units at the resource snapshot.,number,Int64,units,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_CBCT-1_usage,waitingProcesses,Processes waiting for this resource at the snapshot.,number,Int64,count,0,0.0,2,0,Field-specific; see description
+radiology,Escenario_Examinacion_CBCT-1_usage,maxWaitTime,Source maximum-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,2,0,Field-specific; see description
+radiology,Escenario_Examinacion_CBCT-1_usage,averageWaitTime,Source average-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_CBCT-1_usage,currentSimulationLocalTime,Snapshot clock time; has no calendar date.,string,string,HH:MM clock,0,0.0,288,0,Field-specific; see description
+radiology,Escenario_Examinacion_CBCT-1_usage,currentSimulationDay,Snapshot weekday; starts Monday although case timestamps begin Sunday.,string,string,weekday,0,0.0,7,0,Field-specific; see description
+radiology,Escenario_Examinacion_CT-1_usage,avgUsage,Source usage statistic. Averaging-window semantics are not specified; not used as instantaneous occupancy.,number,Float64,source ratio,0,0.0,1802,0,Field-specific; see description
+radiology,Escenario_Examinacion_CT-1_usage,avail,Available units at the resource snapshot.,number,Int64,units,0,0.0,2,0,Field-specific; see description
+radiology,Escenario_Examinacion_CT-1_usage,limit,Total units at the resource snapshot.,number,Int64,units,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_CT-1_usage,waitingProcesses,Processes waiting for this resource at the snapshot.,number,Int64,count,0,0.0,6,0,Field-specific; see description
+radiology,Escenario_Examinacion_CT-1_usage,maxWaitTime,Source maximum-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,11,0,Field-specific; see description
+radiology,Escenario_Examinacion_CT-1_usage,averageWaitTime,Source average-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,16,0,Field-specific; see description
+radiology,Escenario_Examinacion_CT-1_usage,currentSimulationLocalTime,Snapshot clock time; has no calendar date.,string,string,HH:MM clock,0,0.0,288,0,Field-specific; see description
+radiology,Escenario_Examinacion_CT-1_usage,currentSimulationDay,Snapshot weekday; starts Monday although case timestamps begin Sunday.,string,string,weekday,0,0.0,7,0,Field-specific; see description
+radiology,Escenario_Examinacion_CT-2_usage,avgUsage,Source usage statistic. Averaging-window semantics are not specified; not used as instantaneous occupancy.,number,Float64,source ratio,0,0.0,1705,0,Field-specific; see description
+radiology,Escenario_Examinacion_CT-2_usage,avail,Available units at the resource snapshot.,number,Int64,units,0,0.0,2,0,Field-specific; see description
+radiology,Escenario_Examinacion_CT-2_usage,limit,Total units at the resource snapshot.,number,Int64,units,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_CT-2_usage,waitingProcesses,Processes waiting for this resource at the snapshot.,number,Int64,count,0,0.0,6,0,Field-specific; see description
+radiology,Escenario_Examinacion_CT-2_usage,maxWaitTime,Source maximum-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,7,0,Field-specific; see description
+radiology,Escenario_Examinacion_CT-2_usage,averageWaitTime,Source average-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,18,0,Field-specific; see description
+radiology,Escenario_Examinacion_CT-2_usage,currentSimulationLocalTime,Snapshot clock time; has no calendar date.,string,string,HH:MM clock,0,0.0,288,0,Field-specific; see description
+radiology,Escenario_Examinacion_CT-2_usage,currentSimulationDay,Snapshot weekday; starts Monday although case timestamps begin Sunday.,string,string,weekday,0,0.0,7,0,Field-specific; see description
+radiology,Escenario_Examinacion_MAMMO-1_usage,avgUsage,Source usage statistic. Averaging-window semantics are not specified; not used as instantaneous occupancy.,number,Float64,source ratio,0,0.0,1817,0,Field-specific; see description
+radiology,Escenario_Examinacion_MAMMO-1_usage,avail,Available units at the resource snapshot.,number,Int64,units,0,0.0,2,0,Field-specific; see description
+radiology,Escenario_Examinacion_MAMMO-1_usage,limit,Total units at the resource snapshot.,number,Int64,units,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_MAMMO-1_usage,waitingProcesses,Processes waiting for this resource at the snapshot.,number,Int64,count,0,0.0,6,0,Field-specific; see description
+radiology,Escenario_Examinacion_MAMMO-1_usage,maxWaitTime,Source maximum-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,9,0,Field-specific; see description
+radiology,Escenario_Examinacion_MAMMO-1_usage,averageWaitTime,Source average-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,21,0,Field-specific; see description
+radiology,Escenario_Examinacion_MAMMO-1_usage,currentSimulationLocalTime,Snapshot clock time; has no calendar date.,string,string,HH:MM clock,0,0.0,288,0,Field-specific; see description
+radiology,Escenario_Examinacion_MAMMO-1_usage,currentSimulationDay,Snapshot weekday; starts Monday although case timestamps begin Sunday.,string,string,weekday,0,0.0,7,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-1_usage,avgUsage,Source usage statistic. Averaging-window semantics are not specified; not used as instantaneous occupancy.,number,Float64,source ratio,0,0.0,1647,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-1_usage,avail,Available units at the resource snapshot.,number,Int64,units,0,0.0,2,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-1_usage,limit,Total units at the resource snapshot.,number,Int64,units,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-1_usage,waitingProcesses,Processes waiting for this resource at the snapshot.,number,Int64,count,0,0.0,4,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-1_usage,maxWaitTime,Source maximum-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,5,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-1_usage,averageWaitTime,Source average-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,4,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-1_usage,currentSimulationLocalTime,Snapshot clock time; has no calendar date.,string,string,HH:MM clock,0,0.0,288,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-1_usage,currentSimulationDay,Snapshot weekday; starts Monday although case timestamps begin Sunday.,string,string,weekday,0,0.0,7,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-2_usage,avgUsage,Source usage statistic. Averaging-window semantics are not specified; not used as instantaneous occupancy.,number,Float64,source ratio,0,0.0,1826,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-2_usage,avail,Available units at the resource snapshot.,number,Int64,units,0,0.0,2,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-2_usage,limit,Total units at the resource snapshot.,number,Int64,units,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-2_usage,waitingProcesses,Processes waiting for this resource at the snapshot.,number,Int64,count,0,0.0,3,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-2_usage,maxWaitTime,Source maximum-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,6,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-2_usage,averageWaitTime,Source average-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,5,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-2_usage,currentSimulationLocalTime,Snapshot clock time; has no calendar date.,string,string,HH:MM clock,0,0.0,288,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-2_usage,currentSimulationDay,Snapshot weekday; starts Monday although case timestamps begin Sunday.,string,string,weekday,0,0.0,7,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-3_usage,avgUsage,Source usage statistic. Averaging-window semantics are not specified; not used as instantaneous occupancy.,number,Float64,source ratio,0,0.0,1686,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-3_usage,avail,Available units at the resource snapshot.,number,Int64,units,0,0.0,2,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-3_usage,limit,Total units at the resource snapshot.,number,Int64,units,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-3_usage,waitingProcesses,Processes waiting for this resource at the snapshot.,number,Int64,count,0,0.0,4,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-3_usage,maxWaitTime,Source maximum-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,7,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-3_usage,averageWaitTime,Source average-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,5,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-3_usage,currentSimulationLocalTime,Snapshot clock time; has no calendar date.,string,string,HH:MM clock,0,0.0,288,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-3_usage,currentSimulationDay,Snapshot weekday; starts Monday although case timestamps begin Sunday.,string,string,weekday,0,0.0,7,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-4_usage,avgUsage,Source usage statistic. Averaging-window semantics are not specified; not used as instantaneous occupancy.,number,Float64,source ratio,0,0.0,1789,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-4_usage,avail,Available units at the resource snapshot.,number,Int64,units,0,0.0,2,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-4_usage,limit,Total units at the resource snapshot.,number,Int64,units,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-4_usage,waitingProcesses,Processes waiting for this resource at the snapshot.,number,Int64,count,0,0.0,3,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-4_usage,maxWaitTime,Source maximum-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,7,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-4_usage,averageWaitTime,Source average-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,6,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-4_usage,currentSimulationLocalTime,Snapshot clock time; has no calendar date.,string,string,HH:MM clock,0,0.0,288,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-4_usage,currentSimulationDay,Snapshot weekday; starts Monday although case timestamps begin Sunday.,string,string,weekday,0,0.0,7,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-5_usage,avgUsage,Source usage statistic. Averaging-window semantics are not specified; not used as instantaneous occupancy.,number,Float64,source ratio,0,0.0,1797,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-5_usage,avail,Available units at the resource snapshot.,number,Int64,units,0,0.0,2,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-5_usage,limit,Total units at the resource snapshot.,number,Int64,units,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-5_usage,waitingProcesses,Processes waiting for this resource at the snapshot.,number,Int64,count,0,0.0,3,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-5_usage,maxWaitTime,Source maximum-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,9,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-5_usage,averageWaitTime,Source average-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,6,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-5_usage,currentSimulationLocalTime,Snapshot clock time; has no calendar date.,string,string,HH:MM clock,0,0.0,288,0,Field-specific; see description
+radiology,Escenario_Examinacion_Maquina_Rayos_X-5_usage,currentSimulationDay,Snapshot weekday; starts Monday although case timestamps begin Sunday.,string,string,weekday,0,0.0,7,0,Field-specific; see description
+radiology,Escenario_Examinacion_MRI-1_usage,avgUsage,Source usage statistic. Averaging-window semantics are not specified; not used as instantaneous occupancy.,number,Float64,source ratio,0,0.0,1732,0,Field-specific; see description
+radiology,Escenario_Examinacion_MRI-1_usage,avail,Available units at the resource snapshot.,number,Int64,units,0,0.0,2,0,Field-specific; see description
+radiology,Escenario_Examinacion_MRI-1_usage,limit,Total units at the resource snapshot.,number,Int64,units,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_MRI-1_usage,waitingProcesses,Processes waiting for this resource at the snapshot.,number,Int64,count,0,0.0,3,0,Field-specific; see description
+radiology,Escenario_Examinacion_MRI-1_usage,maxWaitTime,Source maximum-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,10,0,Field-specific; see description
+radiology,Escenario_Examinacion_MRI-1_usage,averageWaitTime,Source average-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,15,0,Field-specific; see description
+radiology,Escenario_Examinacion_MRI-1_usage,currentSimulationLocalTime,Snapshot clock time; has no calendar date.,string,string,HH:MM clock,0,0.0,288,0,Field-specific; see description
+radiology,Escenario_Examinacion_MRI-1_usage,currentSimulationDay,Snapshot weekday; starts Monday although case timestamps begin Sunday.,string,string,weekday,0,0.0,7,0,Field-specific; see description
+radiology,Escenario_Examinacion_MRI-2_usage,avgUsage,Source usage statistic. Averaging-window semantics are not specified; not used as instantaneous occupancy.,number,Float64,source ratio,0,0.0,1757,0,Field-specific; see description
+radiology,Escenario_Examinacion_MRI-2_usage,avail,Available units at the resource snapshot.,number,Int64,units,0,0.0,2,0,Field-specific; see description
+radiology,Escenario_Examinacion_MRI-2_usage,limit,Total units at the resource snapshot.,number,Int64,units,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_MRI-2_usage,waitingProcesses,Processes waiting for this resource at the snapshot.,number,Int64,count,0,0.0,3,0,Field-specific; see description
+radiology,Escenario_Examinacion_MRI-2_usage,maxWaitTime,Source maximum-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,4,0,Field-specific; see description
+radiology,Escenario_Examinacion_MRI-2_usage,averageWaitTime,Source average-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,10,0,Field-specific; see description
+radiology,Escenario_Examinacion_MRI-2_usage,currentSimulationLocalTime,Snapshot clock time; has no calendar date.,string,string,HH:MM clock,0,0.0,288,0,Field-specific; see description
+radiology,Escenario_Examinacion_MRI-2_usage,currentSimulationDay,Snapshot weekday; starts Monday although case timestamps begin Sunday.,string,string,weekday,0,0.0,7,0,Field-specific; see description
+radiology,Escenario_Examinacion_MRI-3_usage,avgUsage,Source usage statistic. Averaging-window semantics are not specified; not used as instantaneous occupancy.,number,Float64,source ratio,0,0.0,1745,0,Field-specific; see description
+radiology,Escenario_Examinacion_MRI-3_usage,avail,Available units at the resource snapshot.,number,Int64,units,0,0.0,2,0,Field-specific; see description
+radiology,Escenario_Examinacion_MRI-3_usage,limit,Total units at the resource snapshot.,number,Int64,units,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_MRI-3_usage,waitingProcesses,Processes waiting for this resource at the snapshot.,number,Int64,count,0,0.0,3,0,Field-specific; see description
+radiology,Escenario_Examinacion_MRI-3_usage,maxWaitTime,Source maximum-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,9,0,Field-specific; see description
+radiology,Escenario_Examinacion_MRI-3_usage,averageWaitTime,Source average-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,15,0,Field-specific; see description
+radiology,Escenario_Examinacion_MRI-3_usage,currentSimulationLocalTime,Snapshot clock time; has no calendar date.,string,string,HH:MM clock,0,0.0,288,0,Field-specific; see description
+radiology,Escenario_Examinacion_MRI-3_usage,currentSimulationDay,Snapshot weekday; starts Monday although case timestamps begin Sunday.,string,string,weekday,0,0.0,7,0,Field-specific; see description
+radiology,Escenario_Examinacion_MRI-4_usage,avgUsage,Source usage statistic. Averaging-window semantics are not specified; not used as instantaneous occupancy.,number,Float64,source ratio,0,0.0,1769,0,Field-specific; see description
+radiology,Escenario_Examinacion_MRI-4_usage,avail,Available units at the resource snapshot.,number,Int64,units,0,0.0,2,0,Field-specific; see description
+radiology,Escenario_Examinacion_MRI-4_usage,limit,Total units at the resource snapshot.,number,Int64,units,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_MRI-4_usage,waitingProcesses,Processes waiting for this resource at the snapshot.,number,Int64,count,0,0.0,3,0,Field-specific; see description
+radiology,Escenario_Examinacion_MRI-4_usage,maxWaitTime,Source maximum-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,4,0,Field-specific; see description
+radiology,Escenario_Examinacion_MRI-4_usage,averageWaitTime,Source average-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,13,0,Field-specific; see description
+radiology,Escenario_Examinacion_MRI-4_usage,currentSimulationLocalTime,Snapshot clock time; has no calendar date.,string,string,HH:MM clock,0,0.0,288,0,Field-specific; see description
+radiology,Escenario_Examinacion_MRI-4_usage,currentSimulationDay,Snapshot weekday; starts Monday although case timestamps begin Sunday.,string,string,weekday,0,0.0,7,0,Field-specific; see description
+radiology,Escenario_Examinacion_OTROS_RECURSOS_usage,avgUsage,Source usage statistic. Averaging-window semantics are not specified; not used as instantaneous occupancy.,number,Float64,source ratio,0,0.0,1579,0,Field-specific; see description
+radiology,Escenario_Examinacion_OTROS_RECURSOS_usage,avail,Available units at the resource snapshot.,number,Int64,units,0,0.0,5,0,Field-specific; see description
+radiology,Escenario_Examinacion_OTROS_RECURSOS_usage,limit,Total units at the resource snapshot.,number,Int64,units,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_OTROS_RECURSOS_usage,waitingProcesses,Processes waiting for this resource at the snapshot.,number,Int64,count,0,0.0,3,0,Field-specific; see description
+radiology,Escenario_Examinacion_OTROS_RECURSOS_usage,maxWaitTime,Source maximum-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,3,0,Field-specific; see description
+radiology,Escenario_Examinacion_OTROS_RECURSOS_usage,averageWaitTime,Source average-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_OTROS_RECURSOS_usage,currentSimulationLocalTime,Snapshot clock time; has no calendar date.,string,string,HH:MM clock,0,0.0,288,0,Field-specific; see description
+radiology,Escenario_Examinacion_OTROS_RECURSOS_usage,currentSimulationDay,Snapshot weekday; starts Monday although case timestamps begin Sunday.,string,string,weekday,0,0.0,7,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_CBCT_usage,avgUsage,Source usage statistic. Averaging-window semantics are not specified; not used as instantaneous occupancy.,number,Float64,source ratio,0,0.0,93,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_CBCT_usage,avail,Available units at the resource snapshot.,number,Int64,units,0,0.0,2,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_CBCT_usage,limit,Total units at the resource snapshot.,number,Int64,units,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_CBCT_usage,waitingProcesses,Processes waiting for this resource at the snapshot.,number,Int64,count,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_CBCT_usage,maxWaitTime,Source maximum-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_CBCT_usage,averageWaitTime,Source average-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_CBCT_usage,currentSimulationLocalTime,Snapshot clock time; has no calendar date.,string,string,HH:MM clock,0,0.0,288,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_CBCT_usage,currentSimulationDay,Snapshot weekday; starts Monday although case timestamps begin Sunday.,string,string,weekday,0,0.0,7,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_CT_usage,avgUsage,Source usage statistic. Averaging-window semantics are not specified; not used as instantaneous occupancy.,number,Float64,source ratio,0,0.0,1423,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_CT_usage,avail,Available units at the resource snapshot.,number,Int64,units,0,0.0,8,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_CT_usage,limit,Total units at the resource snapshot.,number,Int64,units,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_CT_usage,waitingProcesses,Processes waiting for this resource at the snapshot.,number,Int64,count,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_CT_usage,maxWaitTime,Source maximum-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_CT_usage,averageWaitTime,Source average-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_CT_usage,currentSimulationLocalTime,Snapshot clock time; has no calendar date.,string,string,HH:MM clock,0,0.0,288,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_CT_usage,currentSimulationDay,Snapshot weekday; starts Monday although case timestamps begin Sunday.,string,string,weekday,0,0.0,7,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_MAMMO_usage,avgUsage,Source usage statistic. Averaging-window semantics are not specified; not used as instantaneous occupancy.,number,Float64,source ratio,0,0.0,1373,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_MAMMO_usage,avail,Available units at the resource snapshot.,number,Int64,units,0,0.0,6,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_MAMMO_usage,limit,Total units at the resource snapshot.,number,Int64,units,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_MAMMO_usage,waitingProcesses,Processes waiting for this resource at the snapshot.,number,Int64,count,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_MAMMO_usage,maxWaitTime,Source maximum-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_MAMMO_usage,averageWaitTime,Source average-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_MAMMO_usage,currentSimulationLocalTime,Snapshot clock time; has no calendar date.,string,string,HH:MM clock,0,0.0,288,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_MAMMO_usage,currentSimulationDay,Snapshot weekday; starts Monday although case timestamps begin Sunday.,string,string,weekday,0,0.0,7,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_MRI_usage,avgUsage,Source usage statistic. Averaging-window semantics are not specified; not used as instantaneous occupancy.,number,Float64,source ratio,0,0.0,1574,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_MRI_usage,avail,Available units at the resource snapshot.,number,Int64,units,0,0.0,10,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_MRI_usage,limit,Total units at the resource snapshot.,number,Int64,units,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_MRI_usage,waitingProcesses,Processes waiting for this resource at the snapshot.,number,Int64,count,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_MRI_usage,maxWaitTime,Source maximum-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_MRI_usage,averageWaitTime,Source average-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_MRI_usage,currentSimulationLocalTime,Snapshot clock time; has no calendar date.,string,string,HH:MM clock,0,0.0,288,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_MRI_usage,currentSimulationDay,Snapshot weekday; starts Monday although case timestamps begin Sunday.,string,string,weekday,0,0.0,7,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_RAYOS_usage,avgUsage,Source usage statistic. Averaging-window semantics are not specified; not used as instantaneous occupancy.,number,Float64,source ratio,0,0.0,1391,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_RAYOS_usage,avail,Available units at the resource snapshot.,number,Int64,units,0,0.0,10,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_RAYOS_usage,limit,Total units at the resource snapshot.,number,Int64,units,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_RAYOS_usage,waitingProcesses,Processes waiting for this resource at the snapshot.,number,Int64,count,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_RAYOS_usage,maxWaitTime,Source maximum-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_RAYOS_usage,averageWaitTime,Source average-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_RAYOS_usage,currentSimulationLocalTime,Snapshot clock time; has no calendar date.,string,string,HH:MM clock,0,0.0,288,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_RAYOS_usage,currentSimulationDay,Snapshot weekday; starts Monday although case timestamps begin Sunday.,string,string,weekday,0,0.0,7,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_US_usage,avgUsage,Source usage statistic. Averaging-window semantics are not specified; not used as instantaneous occupancy.,number,Float64,source ratio,0,0.0,1335,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_US_usage,avail,Available units at the resource snapshot.,number,Int64,units,0,0.0,14,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_US_usage,limit,Total units at the resource snapshot.,number,Int64,units,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_US_usage,waitingProcesses,Processes waiting for this resource at the snapshot.,number,Int64,count,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_US_usage,maxWaitTime,Source maximum-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_US_usage,averageWaitTime,Source average-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_US_usage,currentSimulationLocalTime,Snapshot clock time; has no calendar date.,string,string,HH:MM clock,0,0.0,288,0,Field-specific; see description
+radiology,Escenario_Examinacion_SILLA_US_usage,currentSimulationDay,Snapshot weekday; starts Monday although case timestamps begin Sunday.,string,string,weekday,0,0.0,7,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-1_usage,avgUsage,Source usage statistic. Averaging-window semantics are not specified; not used as instantaneous occupancy.,number,Float64,source ratio,0,0.0,1669,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-1_usage,avail,Available units at the resource snapshot.,number,Int64,units,0,0.0,2,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-1_usage,limit,Total units at the resource snapshot.,number,Int64,units,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-1_usage,waitingProcesses,Processes waiting for this resource at the snapshot.,number,Int64,count,0,0.0,7,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-1_usage,maxWaitTime,Source maximum-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,11,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-1_usage,averageWaitTime,Source average-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,8,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-1_usage,currentSimulationLocalTime,Snapshot clock time; has no calendar date.,string,string,HH:MM clock,0,0.0,288,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-1_usage,currentSimulationDay,Snapshot weekday; starts Monday although case timestamps begin Sunday.,string,string,weekday,0,0.0,7,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-2_usage,avgUsage,Source usage statistic. Averaging-window semantics are not specified; not used as instantaneous occupancy.,number,Float64,source ratio,0,0.0,1725,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-2_usage,avail,Available units at the resource snapshot.,number,Int64,units,0,0.0,2,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-2_usage,limit,Total units at the resource snapshot.,number,Int64,units,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-2_usage,waitingProcesses,Processes waiting for this resource at the snapshot.,number,Int64,count,0,0.0,2,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-2_usage,maxWaitTime,Source maximum-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,7,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-2_usage,averageWaitTime,Source average-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,7,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-2_usage,currentSimulationLocalTime,Snapshot clock time; has no calendar date.,string,string,HH:MM clock,0,0.0,288,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-2_usage,currentSimulationDay,Snapshot weekday; starts Monday although case timestamps begin Sunday.,string,string,weekday,0,0.0,7,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-3_usage,avgUsage,Source usage statistic. Averaging-window semantics are not specified; not used as instantaneous occupancy.,number,Float64,source ratio,0,0.0,1751,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-3_usage,avail,Available units at the resource snapshot.,number,Int64,units,0,0.0,2,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-3_usage,limit,Total units at the resource snapshot.,number,Int64,units,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-3_usage,waitingProcesses,Processes waiting for this resource at the snapshot.,number,Int64,count,0,0.0,2,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-3_usage,maxWaitTime,Source maximum-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,3,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-3_usage,averageWaitTime,Source average-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,5,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-3_usage,currentSimulationLocalTime,Snapshot clock time; has no calendar date.,string,string,HH:MM clock,0,0.0,288,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-3_usage,currentSimulationDay,Snapshot weekday; starts Monday although case timestamps begin Sunday.,string,string,weekday,0,0.0,7,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-4_usage,avgUsage,Source usage statistic. Averaging-window semantics are not specified; not used as instantaneous occupancy.,number,Float64,source ratio,0,0.0,1706,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-4_usage,avail,Available units at the resource snapshot.,number,Int64,units,0,0.0,2,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-4_usage,limit,Total units at the resource snapshot.,number,Int64,units,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-4_usage,waitingProcesses,Processes waiting for this resource at the snapshot.,number,Int64,count,0,0.0,6,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-4_usage,maxWaitTime,Source maximum-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,14,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-4_usage,averageWaitTime,Source average-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,9,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-4_usage,currentSimulationLocalTime,Snapshot clock time; has no calendar date.,string,string,HH:MM clock,0,0.0,288,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-4_usage,currentSimulationDay,Snapshot weekday; starts Monday although case timestamps begin Sunday.,string,string,weekday,0,0.0,7,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-5_usage,avgUsage,Source usage statistic. Averaging-window semantics are not specified; not used as instantaneous occupancy.,number,Float64,source ratio,0,0.0,1741,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-5_usage,avail,Available units at the resource snapshot.,number,Int64,units,0,0.0,2,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-5_usage,limit,Total units at the resource snapshot.,number,Int64,units,0,0.0,1,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-5_usage,waitingProcesses,Processes waiting for this resource at the snapshot.,number,Int64,count,0,0.0,2,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-5_usage,maxWaitTime,Source maximum-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,3,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-5_usage,averageWaitTime,Source average-wait statistic; time unit/window not explicitly established in field documentation.,number,Float64,unconfirmed source unit,0,0.0,5,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-5_usage,currentSimulationLocalTime,Snapshot clock time; has no calendar date.,string,string,HH:MM clock,0,0.0,288,0,Field-specific; see description
+radiology,Escenario_Examinacion_US-5_usage,currentSimulationDay,Snapshot weekday; starts Monday although case timestamps begin Sunday.,string,string,weekday,0,0.0,7,0,Field-specific; see description
+radiology,events,case_id,Synthetic radiology visit identifier. Event log includes cases absent from the completed-case summary.,string,string,identifier,0,0.0,3254,0,Field-specific; see description
+radiology,events,exam_id,Exam identifier. Validate with case_id before joining; blank on non-exam events.,string,string,identifier,23840,87.189,3503,0,Field-specific; see description
+radiology,events,activity,Source Spanish activity label; preserve to avoid guessing workflow semantics.,string,string,category,0,0.0,27,0,Field-specific; see description
+radiology,events,timestamp_start,Source event interval start.,utc_datetime,"datetime64[us, UTC]",UTC datetime,0,0.0,6704,0,Field-specific; see description
+radiology,events,timestamp_end,Source event interval end.,utc_datetime,"datetime64[us, UTC]",UTC datetime,0,0.0,6741,0,Field-specific; see description
+radiology,events,total_duration,Source event interval duration.,hhmm,Int64,HH:MM duration,0,0.0,153,0,Field-specific; see description
+radiology,events,modality,Source imaging modality label. Literal None denotes not applicable in events.,string,string,category,0,0.0,7,0,Field-specific; see description
+radiology,events,patient_type,"Radiology category: A outpatient, S emergency, H inpatient, D day-hospital.",string,string,category,0,0.0,4,0,Field-specific; see description
+radiology,events,scenario_id,"Source subprocess/scenario label, not a unique replication ID.",string,string,category,0,0.0,6,0,Field-specific; see description
+radiology,exams,case_id,Synthetic radiology visit identifier. Event log includes cases absent from the completed-case summary.,string,string,identifier,0,0.0,3193,0,Field-specific; see description
+radiology,exams,exam_id,Exam identifier. Validate with case_id before joining; blank on non-exam events.,string,string,identifier,0,0.0,3503,0,Field-specific; see description
+radiology,exams,modality,Source imaging modality label. Literal None denotes not applicable in events.,string,string,category,0,0.0,7,0,Field-specific; see description
+radiology,exams,start_exam,Scan service start. Verified against scan duration and the matching event interval.,utc_datetime,"datetime64[us, UTC]",UTC datetime,0,0.0,2707,0,Field-specific; see description
+radiology,exams,end_exam,End of source exam interval.,utc_datetime,"datetime64[us, UTC]",UTC datetime,0,0.0,2664,0,Field-specific; see description
+radiology,exams,wait_before_exam,Explicit source-defined pre-scan waiting duration; distinct from total exam interval.,hhmm,Int64,HH:MM duration,0,0.0,88,0,Field-specific; see description
+radiology,exams,scan_time_duration,Explicit source-defined scan duration.,hhmm,Int64,HH:MM duration,0,0.0,25,0,Field-specific; see description
+radiology,exams,total_exam_duration,"Wait plus scan duration. This differs from end_exam minus start_exam, which measures scan service only.",hhmm,Int64,HH:MM duration,0,0.0,106,0,Field-specific; see description

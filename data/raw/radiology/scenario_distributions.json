@@ -1,0 +1,413 @@
+{
+  "scenario_id": "Radiology_Workflow_Base_Scenario",
+  "description": "Arrival and service-time distributions used in the radiology workflow simulation.",
+  "time_unit": "MINUTES",
+  "arrival_process": {
+    "definition": "Time-dependent Poisson processes per patient type, defined by time-of-day intervals and average arrival rates.",
+    "patient_type_A": {
+      "entity": "PacienteA",
+      "flow_id": "Llegada_Pacientes_A",
+      "intervals": [
+        {
+          "start_time": "07:00",
+          "end_time": "08:00",
+          "days": [
+            "MONDAY",
+            "TUESDAY",
+            "WEDNESDAY",
+            "THURSDAY",
+            "FRIDAY"
+          ],
+          "lambda": 1.436,
+          "rate_time_unit": "MINUTES",
+          "rate_time_duration": 6
+        },
+        {
+          "start_time": "08:00",
+          "end_time": "13:00",
+          "days": [
+            "MONDAY",
+            "TUESDAY",
+            "WEDNESDAY",
+            "THURSDAY",
+            "FRIDAY"
+          ],
+          "lambda": 3.5,
+          "rate_time_unit": "MINUTES",
+          "rate_time_duration": 5.0
+        },
+        {
+          "start_time": "13:00",
+          "end_time": "17:00",
+          "days": [
+            "MONDAY",
+            "TUESDAY",
+            "WEDNESDAY",
+            "THURSDAY",
+            "FRIDAY"
+          ],
+          "lambda": 2.5,
+          "rate_time_unit": "MINUTES",
+          "rate_time_duration": 5.0
+        },
+        {
+          "start_time": "17:00",
+          "end_time": "20:00",
+          "days": [
+            "MONDAY",
+            "TUESDAY",
+            "WEDNESDAY",
+            "THURSDAY",
+            "FRIDAY"
+          ],
+          "lambda": 1.2,
+          "rate_time_unit": "MINUTES",
+          "rate_time_duration": 5.0
+        },
+        {
+          "start_time": "20:00",
+          "end_time": "22:00",
+          "days": [
+            "MONDAY",
+            "TUESDAY",
+            "WEDNESDAY",
+            "THURSDAY",
+            "FRIDAY"
+          ],
+          "lambda": 0.65,
+          "rate_time_unit": "MINUTES",
+          "rate_time_duration": 5.0
+        },
+        {
+          "start_time": "07:00",
+          "end_time": "10:00",
+          "days": [
+            "SATURDAY",
+            "SUNDAY"
+          ],
+          "lambda": 0.855,
+          "rate_time_unit": "MINUTES",
+          "rate_time_duration": 8
+        },
+        {
+          "start_time": "10:00",
+          "end_time": "14:00",
+          "days": [
+            "SATURDAY",
+            "SUNDAY"
+          ],
+          "lambda": 1.368,
+          "rate_time_unit": "MINUTES",
+          "rate_time_duration": 6
+        },
+        {
+          "start_time": "14:00",
+          "end_time": "18:00",
+          "days": [
+            "SATURDAY",
+            "SUNDAY"
+          ],
+          "lambda": 0.684,
+          "rate_time_unit": "MINUTES",
+          "rate_time_duration": 10
+        },
+        {
+          "start_time": "18:00",
+          "end_time": "21:00",
+          "days": [
+            "SATURDAY",
+            "SUNDAY"
+          ],
+          "lambda": 0.342,
+          "rate_time_unit": "MINUTES",
+          "rate_time_duration": 10
+        }
+      ]
+    },
+    "patient_type_S": {
+      "entity": "PacienteS",
+      "flow_id": "Llegada_Pacientes_S",
+      "intervals": [
+        {
+          "start_time": "00:00",
+          "end_time": "08:00",
+          "lambda": 0.05,
+          "rate_time_unit": "MINUTES",
+          "rate_time_duration": 5
+        },
+        {
+          "start_time": "08:00",
+          "end_time": "16:00",
+          "lambda": 0.33,
+          "rate_time_unit": "MINUTES",
+          "rate_time_duration": 5.0
+        },
+        {
+          "start_time": "16:00",
+          "end_time": "18:00",
+          "lambda": 0.2,
+          "rate_time_unit": "MINUTES",
+          "rate_time_duration": 5.0
+        },
+        {
+          "start_time": "18:00",
+          "end_time": "21:00",
+          "lambda": 0.185,
+          "rate_time_unit": "MINUTES",
+          "rate_time_duration": 5.0
+        },
+        {
+          "start_time": "21:00",
+          "end_time": "00:00",
+          "lambda": 0.055,
+          "rate_time_unit": "MINUTES",
+          "rate_time_duration": 5.0
+        }
+      ]
+    },
+    "patient_type_H": {
+      "entity": "PacienteH",
+      "flow_id": "Llegada_Pacientes_H",
+      "intervals": [
+        {
+          "start_time": "00:00",
+          "end_time": "08:00",
+          "lambda": 0.108,
+          "rate_time_unit": "MINUTES",
+          "rate_time_duration": 5
+        },
+        {
+          "start_time": "08:00",
+          "end_time": "18:00",
+          "lambda": 0.39,
+          "rate_time_unit": "MINUTES",
+          "rate_time_duration": 5.0
+        },
+        {
+          "start_time": "18:00",
+          "end_time": "22:00",
+          "lambda": 0.25,
+          "rate_time_unit": "MINUTES",
+          "rate_time_duration": 5.0
+        },
+        {
+          "start_time": "22:00",
+          "end_time": "00:00",
+          "lambda": 0.13,
+          "rate_time_unit": "MINUTES",
+          "rate_time_duration": 5.0
+        }
+      ]
+    },
+    "patient_type_D": {
+      "entity": "PacienteD",
+      "flow_id": "Llegada_Pacientes_D",
+      "intervals": [
+        {
+          "start_time": "07:00",
+          "end_time": "09:00",
+          "days": [
+            "MONDAY",
+            "TUESDAY",
+            "WEDNESDAY",
+            "THURSDAY",
+            "FRIDAY"
+          ],
+          "lambda": 0.499,
+          "rate_time_unit": "MINUTES",
+          "rate_time_duration": 5
+        },
+        {
+          "start_time": "09:00",
+          "end_time": "12:00",
+          "days": [
+            "MONDAY",
+            "TUESDAY",
+            "WEDNESDAY",
+            "THURSDAY",
+            "FRIDAY"
+          ],
+          "lambda": 0.564,
+          "rate_time_unit": "MINUTES",
+          "rate_time_duration": 5.0
+        },
+        {
+          "start_time": "12:00",
+          "end_time": "15:00",
+          "days": [
+            "MONDAY",
+            "TUESDAY",
+            "WEDNESDAY",
+            "THURSDAY",
+            "FRIDAY"
+          ],
+          "lambda": 0.217,
+          "rate_time_unit": "MINUTES",
+          "rate_time_duration": 5.0
+        }
+      ]
+    }
+  },
+  "service_time_distributions": {
+    "administrative_flows": {
+      "FrontOffice": {
+        "distribution": "uniform",
+        "lower": 4.0,
+        "upper": 7.0,
+        "description": "Front-office reception time."
+      },
+      "BackOffice": {
+        "distribution": "uniform",
+        "lower": 5.0,
+        "upper": 15.0,
+        "description": "Back-office reception / administrative processing time."
+      },
+      "FluidoContraste": {
+        "distribution": "deterministic",
+        "duration": 60.0,
+        "description": "Fixed contrast preparation / infusion time prior to CT when required."
+      }
+    },
+     "radiology_waiting_flows": {
+      "WR_XRAY_EX": {
+        "distribution": "custom-discrete",
+        "values_minutes": [
+          1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+          12, 14, 15, 16, 18, 20, 24, 25, 30, 36, 40, 45, 50
+        ],
+        "probabilities": [
+          0.009699, 0.000029, 0.000014, 0.000848, 0.007112,
+          0.020016, 0.020461, 0.022904, 0.033307, 0.814142,
+          0.01855, 0.000057, 0.043537, 0.000057, 0.000129,
+          0.006308, 0.000273, 0.000014, 0.001925, 0.000072,
+          0.000402, 0.000129, 0.000014
+        ],
+        "description": "Waiting-room time before X-ray examination."
+      },
+      "WR_CT_EX": {
+        "distribution": "custom-discrete",
+        "values_minutes": [5, 10, 12, 13, 15, 17, 20, 25, 30, 34, 40, 60],
+        "probabilities": [
+          0.000089, 0.476562, 0.007102, 0.002841,
+          0.143555, 0.06179, 0.209073, 0.00657,
+          0.086648, 0.000266, 0.004173, 0.001332
+        ],
+        "description": "Waiting-room time before CT examination."
+      },
+      "WR_CBCT_EX": {
+        "distribution": "custom-discrete",
+        "values_minutes": [5, 10, 15, 20],
+        "probabilities": [0.02, 0.65, 0.25, 0.08],
+        "description": "Waiting-room time before CBCT examination."
+      },
+      "WR_MAMMO_EX": {
+        "distribution": "custom-discrete",
+        "values_minutes": [1, 5, 8, 10, 13, 14, 15, 20, 25, 30, 40, 45, 50, 60],
+        "probabilities": [
+          0.000719, 0.001798, 0.065804, 0.149946,
+          0.071557, 0.011866, 0.489752, 0.128012,
+          0.00827, 0.066163, 0.00036, 0.00036,
+          0.003236, 0.002157
+        ],
+        "description": "Waiting-room time before Mammography examination."
+      },
+      "WR_MRI_EX": {
+        "distribution": "custom-discrete",
+        "values_minutes": [10, 20, 25, 29, 30, 35, 38, 40, 45, 50, 60, 70],
+        "probabilities": [
+          0.149743, 0.025089, 0.150336, 0.005927,
+          0.546227, 0.010075, 0.020348, 0.037139,
+          0.039313, 0.01047, 0.004149, 0.001185
+        ],
+        "description": "Waiting-room time before MRI examination."
+      },
+      "WR_US_EX": {
+        "distribution": "custom-discrete",
+        "values_minutes": [1, 4, 5, 8, 10, 12, 13, 15, 18, 20, 25, 30, 40, 45, 60],
+        "probabilities": [
+          0.000401, 0.004011, 0.012994, 0.002326, 0.315152,
+          0.007139, 0.00008, 0.366728, 0.075559, 0.1893,
+          0.001043, 0.021737, 0.002727, 0.00008, 0.000722
+        ],
+        "description": "Waiting-room time before Ultrasound examination."
+      },
+      "WR_OTHER_EX": {
+        "distribution": "custom-discrete",
+        "values_minutes": [10, 15, 20],
+        "probabilities": [0.75, 0.2, 0.05],
+        "description": "Waiting-room / examination time for Other imaging resources."
+      }
+    },
+    "radiology_examination_flows": {
+      "ExaminacionXRay": {
+        "distribution": "custom-discrete",
+        "values_minutes": [
+          1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+          12, 14, 15, 16, 18, 20, 24, 25, 30, 36, 40, 45, 50
+        ],
+        "probabilities": [
+          0.009699, 0.000029, 0.000014, 0.000848, 0.007112,
+          0.020016, 0.020461, 0.022904, 0.033307, 0.814142,
+          0.01855, 0.000057, 0.043537, 0.000057, 0.000129,
+          0.006308, 0.000273, 0.000014, 0.001925, 0.000072,
+          0.000402, 0.000129, 0.000014
+        ],
+        "description": "Scan duration for X-ray examinations."
+      },
+      "ExaminacionCT": {
+        "distribution": "custom-discrete",
+        "values_minutes": [5, 10, 12, 13, 15, 17, 20, 25, 30, 34, 40, 60],
+        "probabilities": [
+          0.000089, 0.476562, 0.007102, 0.002841,
+          0.143555, 0.06179, 0.209073, 0.00657,
+          0.086648, 0.000266, 0.004173, 0.001332
+        ],
+        "description": "Scan duration for CT examinations."
+      },
+      "ExaminacionCBCT": {
+        "distribution": "custom-discrete",
+        "values_minutes": [5, 10, 15, 20],
+        "probabilities": [0.02, 0.65, 0.25, 0.08],
+        "description": "Scan duration for CBCT examinations."
+      },
+      "ExaminacionMAMMO": {
+        "distribution": "custom-discrete",
+        "values_minutes": [1, 5, 8, 10, 13, 14, 15, 20, 25, 30, 40, 45, 50, 60],
+        "probabilities": [
+          0.000719, 0.001798, 0.065804, 0.149946,
+          0.071557, 0.011866, 0.489752, 0.128012,
+          0.00827, 0.066163, 0.00036, 0.00036,
+          0.003236, 0.002157
+        ],
+        "description": "Scan duration for Mammography examinations."
+      },
+      "ExaminacionMRI": {
+        "distribution": "custom-discrete",
+        "values_minutes": [10, 20, 25, 29, 30, 35, 38, 40, 45, 50, 60, 70],
+        "probabilities": [
+          0.149743, 0.025089, 0.150336, 0.005927,
+          0.546227, 0.010075, 0.020348, 0.037139,
+          0.039313, 0.01047, 0.004149, 0.001185
+        ],
+        "description": "Scan duration for MRI examinations."
+      },
+      "ExaminacionUS": {
+        "distribution": "custom-discrete",
+        "values_minutes": [1, 4, 5, 8, 10, 12, 13, 15, 18, 20, 25, 30, 40, 45, 60],
+        "probabilities": [
+          0.000401, 0.004011, 0.012994, 0.002326, 0.315152,
+          0.007139, 0.00008, 0.366728, 0.075559, 0.1893,
+          0.001043, 0.021737, 0.002727, 0.00008, 0.000722
+        ],
+        "description": "Scan duration for Ultrasound examinations."
+      },
+      "ExaminacionOther": {
+        "distribution": "custom-discrete",
+        "values_minutes": [10, 15, 20],
+        "probabilities": [0.75, 0.2, 0.05],
+        "description": "Scan duration for other imaging resources."
+      }
+    }
+
+  }
+}

@@ -1,0 +1,352 @@
+[
+  {
+    "source": "opd",
+    "path": "data\\raw\\opd\\HospitalOPD-noname.csv",
+    "url": "https://data.mendeley.com/public-files/datasets/j2hd2239dr/files/02ec5ae9-79f0-43c0-8e1f-085ae216b4bf/file_downloaded",
+    "checksum": "07d0096b6e3fcff78f94afa6d5aeffeeb2566f59902eccc03da209a3b6502720",
+    "algorithm": "sha256",
+    "bytes": 10306961,
+    "original_filename": "HospitalOPD-noname.csv",
+    "source_file_id": "02ec5ae9-79f0-43c0-8e1f-085ae216b4bf"
+  },
+  {
+    "source": "radiology",
+    "path": "data\\raw\\radiology\\cases.csv",
+    "url": "https://data.mendeley.com/public-files/datasets/jsg8c4yhxy/files/b2a5953a-4644-4f00-9684-93d7b0fc9a20/file_downloaded",
+    "checksum": "4152a185a05d8f58b8fe9fc8142b0c33b2e7a11106c9b8cdbf8c3377bb55606d",
+    "algorithm": "sha256",
+    "bytes": 322533,
+    "original_filename": "cases.csv",
+    "source_file_id": "b2a5953a-4644-4f00-9684-93d7b0fc9a20"
+  },
+  {
+    "source": "radiology",
+    "path": "data\\raw\\radiology\\dataset_details.txt",
+    "url": "https://data.mendeley.com/public-files/datasets/jsg8c4yhxy/files/f83d616f-b281-419b-aaa6-dcf8abc66920/file_downloaded",
+    "checksum": "42317582f16efa132d0c9c4b5ad6e54a7e27110b88858f197d664bdfc340126b",
+    "algorithm": "sha256",
+    "bytes": 5783,
+    "original_filename": "dataset_details.txt",
+    "source_file_id": "f83d616f-b281-419b-aaa6-dcf8abc66920"
+  },
+  {
+    "source": "radiology",
+    "path": "data\\raw\\radiology\\Escenario_Examinacion_CBCT-1_usage.csv",
+    "url": "https://data.mendeley.com/public-files/datasets/jsg8c4yhxy/files/2f749446-c1fc-453d-bfb6-b83787d1c323/file_downloaded",
+    "checksum": "7bcafaf64f5e8b8325feafbba8ddcdfc509cb9d2e3becd97c77236afa4d2d193",
+    "algorithm": "sha256",
+    "bytes": 72391,
+    "original_filename": "Escenario_Examinacion_CBCT-1_usage.csv",
+    "source_file_id": "2f749446-c1fc-453d-bfb6-b83787d1c323"
+  },
+  {
+    "source": "radiology",
+    "path": "data\\raw\\radiology\\Escenario_Examinacion_CT-1_usage.csv",
+    "url": "https://data.mendeley.com/public-files/datasets/jsg8c4yhxy/files/f78856ab-d981-4832-b0b7-1659b88b70cf/file_downloaded",
+    "checksum": "9c7b0eaa7bcd447c3fd8878dd0b83e7b6a41715a6140fc060604fd13500c47bc",
+    "algorithm": "sha256",
+    "bytes": 77665,
+    "original_filename": "Escenario_Examinacion_CT-1_usage.csv",
+    "source_file_id": "f78856ab-d981-4832-b0b7-1659b88b70cf"
+  },
+  {
+    "source": "radiology",
+    "path": "data\\raw\\radiology\\Escenario_Examinacion_CT-2_usage.csv",
+    "url": "https://data.mendeley.com/public-files/datasets/jsg8c4yhxy/files/060bebf6-8b41-40d8-a4c2-ec571070f33f/file_downloaded",
+    "checksum": "6cd78169846d305865384977c9ca42918d3bfc616fe1b2d1e218e3625f509db3",
+    "algorithm": "sha256",
+    "bytes": 77673,
+    "original_filename": "Escenario_Examinacion_CT-2_usage.csv",
+    "source_file_id": "060bebf6-8b41-40d8-a4c2-ec571070f33f"
+  },
+  {
+    "source": "radiology",
+    "path": "data\\raw\\radiology\\Escenario_Examinacion_MAMMO-1_usage.csv",
+    "url": "https://data.mendeley.com/public-files/datasets/jsg8c4yhxy/files/bfb9e51d-e207-441d-8dfb-968e64d18a8a/file_downloaded",
+    "checksum": "f3cb59f8893f96d4b0397349778653c961236a0b27a55eb3ac58cefee475bd40",
+    "algorithm": "sha256",
+    "bytes": 77992,
+    "original_filename": "Escenario_Examinacion_MAMMO-1_usage.csv",
+    "source_file_id": "bfb9e51d-e207-441d-8dfb-968e64d18a8a"
+  },
+  {
+    "source": "radiology",
+    "path": "data\\raw\\radiology\\Escenario_Examinacion_Maquina_Rayos_X-1_usage.csv",
+    "url": "https://data.mendeley.com/public-files/datasets/jsg8c4yhxy/files/ea942ba6-1dce-41e5-972f-1ecf7d4996ed/file_downloaded",
+    "checksum": "e1c86a2df2252d6ed944809dd56b531ffa744f91c1ce04f4f64862bddd0a3086",
+    "algorithm": "sha256",
+    "bytes": 74542,
+    "original_filename": "Escenario_Examinacion_Maquina_Rayos_X-1_usage.csv",
+    "source_file_id": "ea942ba6-1dce-41e5-972f-1ecf7d4996ed"
+  },
+  {
+    "source": "radiology",
+    "path": "data\\raw\\radiology\\Escenario_Examinacion_Maquina_Rayos_X-2_usage.csv",
+    "url": "https://data.mendeley.com/public-files/datasets/jsg8c4yhxy/files/16e0e0e5-dde3-46e7-841b-39fee3da1f57/file_downloaded",
+    "checksum": "cd35f1a5cbcc08af72c8ed862c8d1a1c56767a38b06f2784b3cddbf58cec4402",
+    "algorithm": "sha256",
+    "bytes": 74492,
+    "original_filename": "Escenario_Examinacion_Maquina_Rayos_X-2_usage.csv",
+    "source_file_id": "16e0e0e5-dde3-46e7-841b-39fee3da1f57"
+  },
+  {
+    "source": "radiology",
+    "path": "data\\raw\\radiology\\Escenario_Examinacion_Maquina_Rayos_X-3_usage.csv",
+    "url": "https://data.mendeley.com/public-files/datasets/jsg8c4yhxy/files/50fe03c8-05be-4bb3-b33e-919e3e3cdfba/file_downloaded",
+    "checksum": "324ff69986c61d3f6329eff83b4eb2815aae09778d63daf8bf981169de62d4d4",
+    "algorithm": "sha256",
+    "bytes": 74541,
+    "original_filename": "Escenario_Examinacion_Maquina_Rayos_X-3_usage.csv",
+    "source_file_id": "50fe03c8-05be-4bb3-b33e-919e3e3cdfba"
+  },
+  {
+    "source": "radiology",
+    "path": "data\\raw\\radiology\\Escenario_Examinacion_Maquina_Rayos_X-4_usage.csv",
+    "url": "https://data.mendeley.com/public-files/datasets/jsg8c4yhxy/files/833be3d9-ea8a-4f74-8df3-9de88581129e/file_downloaded",
+    "checksum": "c718ab7fe4bd6cedc466a5afc20a1228269b89bab85091577320fc2ccff08e6a",
+    "algorithm": "sha256",
+    "bytes": 74168,
+    "original_filename": "Escenario_Examinacion_Maquina_Rayos_X-4_usage.csv",
+    "source_file_id": "833be3d9-ea8a-4f74-8df3-9de88581129e"
+  },
+  {
+    "source": "radiology",
+    "path": "data\\raw\\radiology\\Escenario_Examinacion_Maquina_Rayos_X-5_usage.csv",
+    "url": "https://data.mendeley.com/public-files/datasets/jsg8c4yhxy/files/99a912c0-c446-44b2-86ae-4475ad5f90cf/file_downloaded",
+    "checksum": "775ad383e94f7c66089b8413c4d868f68eb33aff89f30cb2fa2a3015fafc0599",
+    "algorithm": "sha256",
+    "bytes": 74213,
+    "original_filename": "Escenario_Examinacion_Maquina_Rayos_X-5_usage.csv",
+    "source_file_id": "99a912c0-c446-44b2-86ae-4475ad5f90cf"
+  },
+  {
+    "source": "radiology",
+    "path": "data\\raw\\radiology\\Escenario_Examinacion_MRI-1_usage.csv",
+    "url": "https://data.mendeley.com/public-files/datasets/jsg8c4yhxy/files/8b886e9d-7bd8-4216-8aeb-32c8bf149611/file_downloaded",
+    "checksum": "71006f68258772cf4c3b0f44c5b8e9dd146c7606aec01d9f30e05e12c84b3d25",
+    "algorithm": "sha256",
+    "bytes": 75769,
+    "original_filename": "Escenario_Examinacion_MRI-1_usage.csv",
+    "source_file_id": "8b886e9d-7bd8-4216-8aeb-32c8bf149611"
+  },
+  {
+    "source": "radiology",
+    "path": "data\\raw\\radiology\\Escenario_Examinacion_MRI-2_usage.csv",
+    "url": "https://data.mendeley.com/public-files/datasets/jsg8c4yhxy/files/134ffbd1-d54c-41db-8b47-4c7a6bb87fde/file_downloaded",
+    "checksum": "2e14696cec1120847dcf9e0c570c7319bdf3cc40b36ad3939f89549a40706c27",
+    "algorithm": "sha256",
+    "bytes": 76145,
+    "original_filename": "Escenario_Examinacion_MRI-2_usage.csv",
+    "source_file_id": "134ffbd1-d54c-41db-8b47-4c7a6bb87fde"
+  },
+  {
+    "source": "radiology",
+    "path": "data\\raw\\radiology\\Escenario_Examinacion_MRI-3_usage.csv",
+    "url": "https://data.mendeley.com/public-files/datasets/jsg8c4yhxy/files/d2e0c383-7509-449e-b3dd-711a779155ce/file_downloaded",
+    "checksum": "d9b98f522c98f3860fa687049aa8c304e68ade4df14bd9ffc9d5cd8d0d9f758a",
+    "algorithm": "sha256",
+    "bytes": 75785,
+    "original_filename": "Escenario_Examinacion_MRI-3_usage.csv",
+    "source_file_id": "d2e0c383-7509-449e-b3dd-711a779155ce"
+  },
+  {
+    "source": "radiology",
+    "path": "data\\raw\\radiology\\Escenario_Examinacion_MRI-4_usage.csv",
+    "url": "https://data.mendeley.com/public-files/datasets/jsg8c4yhxy/files/ba7b4743-dd10-4a71-a0ef-e0178b1ccad4/file_downloaded",
+    "checksum": "931866040832c75013f0ab4c8d9e2774238e40663d25a56e0d9af24eda0e1d1d",
+    "algorithm": "sha256",
+    "bytes": 75858,
+    "original_filename": "Escenario_Examinacion_MRI-4_usage.csv",
+    "source_file_id": "ba7b4743-dd10-4a71-a0ef-e0178b1ccad4"
+  },
+  {
+    "source": "radiology",
+    "path": "data\\raw\\radiology\\Escenario_Examinacion_OTROS_RECURSOS_usage.csv",
+    "url": "https://data.mendeley.com/public-files/datasets/jsg8c4yhxy/files/3029ff14-f551-4aee-8777-ab7bd0890e00/file_downloaded",
+    "checksum": "642c812a45c7fee5cda8691963ee94754c4906794d70f1241e35dd0da1d7f666",
+    "algorithm": "sha256",
+    "bytes": 72386,
+    "original_filename": "Escenario_Examinacion_OTROS_RECURSOS_usage.csv",
+    "source_file_id": "3029ff14-f551-4aee-8777-ab7bd0890e00"
+  },
+  {
+    "source": "radiology",
+    "path": "data\\raw\\radiology\\Escenario_Examinacion_SILLA_CBCT_usage.csv",
+    "url": "https://data.mendeley.com/public-files/datasets/jsg8c4yhxy/files/e6c5ccbd-db51-46d1-9b1f-dd9d86dc322c/file_downloaded",
+    "checksum": "8809ae96e54a727e30ddb6cb26f4d1422d27720755d2318362f7eb213e10805f",
+    "algorithm": "sha256",
+    "bytes": 75818,
+    "original_filename": "Escenario_Examinacion_SILLA_CBCT_usage.csv",
+    "source_file_id": "e6c5ccbd-db51-46d1-9b1f-dd9d86dc322c"
+  },
+  {
+    "source": "radiology",
+    "path": "data\\raw\\radiology\\Escenario_Examinacion_SILLA_CT_usage.csv",
+    "url": "https://data.mendeley.com/public-files/datasets/jsg8c4yhxy/files/ef2724f2-349a-4a93-aeb7-935fb09b01db/file_downloaded",
+    "checksum": "24c34a4d70ccafa346145044ce2a5e86b9ecd49793b89d6c576ef91fe8619b30",
+    "algorithm": "sha256",
+    "bytes": 76398,
+    "original_filename": "Escenario_Examinacion_SILLA_CT_usage.csv",
+    "source_file_id": "ef2724f2-349a-4a93-aeb7-935fb09b01db"
+  },
+  {
+    "source": "radiology",
+    "path": "data\\raw\\radiology\\Escenario_Examinacion_SILLA_MAMMO_usage.csv",
+    "url": "https://data.mendeley.com/public-files/datasets/jsg8c4yhxy/files/c0357296-2a0f-4952-93b3-78d68a3eaaaa/file_downloaded",
+    "checksum": "25b7d9f47e858e12d3140af8323e43fd719b687838cbd70c1549acf26a880e54",
+    "algorithm": "sha256",
+    "bytes": 76407,
+    "original_filename": "Escenario_Examinacion_SILLA_MAMMO_usage.csv",
+    "source_file_id": "c0357296-2a0f-4952-93b3-78d68a3eaaaa"
+  },
+  {
+    "source": "radiology",
+    "path": "data\\raw\\radiology\\Escenario_Examinacion_SILLA_MRI_usage.csv",
+    "url": "https://data.mendeley.com/public-files/datasets/jsg8c4yhxy/files/b3a82fb1-5256-474a-9c69-27af3a9db156/file_downloaded",
+    "checksum": "23b296643b06859eacebbeb3c3f800c3f762c6e307b6b0cc90c292ada1f631e5",
+    "algorithm": "sha256",
+    "bytes": 76307,
+    "original_filename": "Escenario_Examinacion_SILLA_MRI_usage.csv",
+    "source_file_id": "b3a82fb1-5256-474a-9c69-27af3a9db156"
+  },
+  {
+    "source": "radiology",
+    "path": "data\\raw\\radiology\\Escenario_Examinacion_SILLA_RAYOS_usage.csv",
+    "url": "https://data.mendeley.com/public-files/datasets/jsg8c4yhxy/files/62fc4153-1aa6-4e59-96a9-f1a4a1f86d9b/file_downloaded",
+    "checksum": "43cfd34be50e634aceebf8d0b3e1720c5e1bf84a81390c8ed4da8f39f1d6b0fb",
+    "algorithm": "sha256",
+    "bytes": 76399,
+    "original_filename": "Escenario_Examinacion_SILLA_RAYOS_usage.csv",
+    "source_file_id": "62fc4153-1aa6-4e59-96a9-f1a4a1f86d9b"
+  },
+  {
+    "source": "radiology",
+    "path": "data\\raw\\radiology\\Escenario_Examinacion_SILLA_US_usage.csv",
+    "url": "https://data.mendeley.com/public-files/datasets/jsg8c4yhxy/files/749bcb3c-a201-44b7-b2bb-798a98cb794f/file_downloaded",
+    "checksum": "04a896e2c528075fcfe0925d6033435b89204f4d0b387be6fcebbc240bd15e1c",
+    "algorithm": "sha256",
+    "bytes": 76361,
+    "original_filename": "Escenario_Examinacion_SILLA_US_usage.csv",
+    "source_file_id": "749bcb3c-a201-44b7-b2bb-798a98cb794f"
+  },
+  {
+    "source": "radiology",
+    "path": "data\\raw\\radiology\\Escenario_Examinacion_US-1_usage.csv",
+    "url": "https://data.mendeley.com/public-files/datasets/jsg8c4yhxy/files/be32315e-d514-4cff-9b53-f56a23de9921/file_downloaded",
+    "checksum": "a79fc868a4e8a71ddab714a4b4a4e862e74413e83427ffecb80dc6b685b1a74f",
+    "algorithm": "sha256",
+    "bytes": 74267,
+    "original_filename": "Escenario_Examinacion_US-1_usage.csv",
+    "source_file_id": "be32315e-d514-4cff-9b53-f56a23de9921"
+  },
+  {
+    "source": "radiology",
+    "path": "data\\raw\\radiology\\Escenario_Examinacion_US-2_usage.csv",
+    "url": "https://data.mendeley.com/public-files/datasets/jsg8c4yhxy/files/acaf464e-028e-4aad-840b-0a1fd85d220d/file_downloaded",
+    "checksum": "ced2d85dc14c49dccc2b50c4714499ab2105c63478134f74263d8e88bddfe326",
+    "algorithm": "sha256",
+    "bytes": 74199,
+    "original_filename": "Escenario_Examinacion_US-2_usage.csv",
+    "source_file_id": "acaf464e-028e-4aad-840b-0a1fd85d220d"
+  },
+  {
+    "source": "radiology",
+    "path": "data\\raw\\radiology\\Escenario_Examinacion_US-3_usage.csv",
+    "url": "https://data.mendeley.com/public-files/datasets/jsg8c4yhxy/files/07d7d2b2-7515-4b98-a7c6-eaaefc6d1d16/file_downloaded",
+    "checksum": "700079f06149f7c385e0d6d6292af094f7ac9b73c319ffb3d16c30eada1b83b7",
+    "algorithm": "sha256",
+    "bytes": 74210,
+    "original_filename": "Escenario_Examinacion_US-3_usage.csv",
+    "source_file_id": "07d7d2b2-7515-4b98-a7c6-eaaefc6d1d16"
+  },
+  {
+    "source": "radiology",
+    "path": "data\\raw\\radiology\\Escenario_Examinacion_US-4_usage.csv",
+    "url": "https://data.mendeley.com/public-files/datasets/jsg8c4yhxy/files/a624bf69-f1d8-4108-b27e-fa67ce281e3a/file_downloaded",
+    "checksum": "c00d0c36565804ce15fd4d3d8d7e7bd0f4a9b60838f0a581d217574fb3c7b28e",
+    "algorithm": "sha256",
+    "bytes": 74391,
+    "original_filename": "Escenario_Examinacion_US-4_usage.csv",
+    "source_file_id": "a624bf69-f1d8-4108-b27e-fa67ce281e3a"
+  },
+  {
+    "source": "radiology",
+    "path": "data\\raw\\radiology\\Escenario_Examinacion_US-5_usage.csv",
+    "url": "https://data.mendeley.com/public-files/datasets/jsg8c4yhxy/files/b0710cdf-2175-454c-ae18-39c73bd542b5/file_downloaded",
+    "checksum": "9d5e2bae8b61f59a1087162943bb0c8373da97faba9a7fe6b7e5ada3904dbced",
+    "algorithm": "sha256",
+    "bytes": 74217,
+    "original_filename": "Escenario_Examinacion_US-5_usage.csv",
+    "source_file_id": "b0710cdf-2175-454c-ae18-39c73bd542b5"
+  },
+  {
+    "source": "radiology",
+    "path": "data\\raw\\radiology\\events.csv",
+    "url": "https://data.mendeley.com/public-files/datasets/jsg8c4yhxy/files/5a7c592b-48a9-4fc1-bc88-24d9aeffa512/file_downloaded",
+    "checksum": "be0bf8964280164c075729722d534194dbb3c2c6edbe97cf0a183310b332356c",
+    "algorithm": "sha256",
+    "bytes": 2688222,
+    "original_filename": "events.csv",
+    "source_file_id": "5a7c592b-48a9-4fc1-bc88-24d9aeffa512"
+  },
+  {
+    "source": "radiology",
+    "path": "data\\raw\\radiology\\exams.csv",
+    "url": "https://data.mendeley.com/public-files/datasets/jsg8c4yhxy/files/6d6f27e2-f06b-42fd-9cf6-5956c85dc7ec/file_downloaded",
+    "checksum": "93e8eeb9b03acfce788b996e83fbcf9d8e6c6604c67957557ee1e1e6e7789fd8",
+    "algorithm": "sha256",
+    "bytes": 270466,
+    "original_filename": "exams.csv",
+    "source_file_id": "6d6f27e2-f06b-42fd-9cf6-5956c85dc7ec"
+  },
+  {
+    "source": "radiology",
+    "path": "data\\raw\\radiology\\intended_uses.txt",
+    "url": "https://data.mendeley.com/public-files/datasets/jsg8c4yhxy/files/0172e022-f788-4559-8e6f-4ba03edf78b1/file_downloaded",
+    "checksum": "4181f3ad32efe4c311f0c28b5445a077cd2e84be4933c1d8f795f5564764aafa",
+    "algorithm": "sha256",
+    "bytes": 5632,
+    "original_filename": "intended_uses.txt",
+    "source_file_id": "0172e022-f788-4559-8e6f-4ba03edf78b1"
+  },
+  {
+    "source": "radiology",
+    "path": "data\\raw\\radiology\\scenario_distributions.json",
+    "url": "https://data.mendeley.com/public-files/datasets/jsg8c4yhxy/files/668d39f3-f1ba-48e5-a7cf-952dd958cc2e/file_downloaded",
+    "checksum": "403d12404011a8d1f1da01820e39fa398ec8e6dd58bf36ad7671210a81dce4b3",
+    "algorithm": "sha256",
+    "bytes": 12481,
+    "original_filename": "scenario_distributions.json",
+    "source_file_id": "668d39f3-f1ba-48e5-a7cf-952dd958cc2e"
+  },
+  {
+    "source": "radiology",
+    "path": "data\\raw\\radiology\\scenario_patients.json",
+    "url": "https://data.mendeley.com/public-files/datasets/jsg8c4yhxy/files/04cb303d-90b6-4eb6-866d-f3f7e651e306/file_downloaded",
+    "checksum": "006031e07682800538647e029287e91d273c6a28f1a92af5a7e9e2b089a7baa3",
+    "algorithm": "sha256",
+    "bytes": 798,
+    "original_filename": "scenario_patients.json",
+    "source_file_id": "04cb303d-90b6-4eb6-866d-f3f7e651e306"
+  },
+  {
+    "source": "radiology",
+    "path": "data\\raw\\radiology\\scenario_resources.json",
+    "url": "https://data.mendeley.com/public-files/datasets/jsg8c4yhxy/files/fc2d57fe-2de1-44ee-8ece-999c9005be80/file_downloaded",
+    "checksum": "6ba3e594d6e3dbb2f981471297e8ca07d23fb275dfe8aaff4a279472dff2fd88",
+    "algorithm": "sha256",
+    "bytes": 7254,
+    "original_filename": "scenario_resources.json",
+    "source_file_id": "fc2d57fe-2de1-44ee-8ece-999c9005be80"
+  },
+  {
+    "source": "radiology",
+    "path": "data\\raw\\radiology\\simulated-radiology-process.png",
+    "url": "https://data.mendeley.com/public-files/datasets/jsg8c4yhxy/files/9637ec1e-10e6-4586-b5a1-4290da7d6052/file_downloaded",
+    "checksum": "d888a5c46fa5cb7176f0a57c94c054ecb0d9901bf7391c32af859d8a5dcff2df",
+    "algorithm": "sha256",
+    "bytes": 1339817,
+    "original_filename": "simulated-radiology-process.png",
+    "source_file_id": "9637ec1e-10e6-4586-b5a1-4290da7d6052"
+  }
+]

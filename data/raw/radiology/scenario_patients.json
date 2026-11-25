@@ -1,0 +1,27 @@
+{
+  "scenario_id": "Radiology_Workflow_Base_Scenario",
+  "description": "Definition of patient types used in the radiology workflow simulation scenario.",
+  "time_unit": "MINUTES",
+  "patient_types": [
+    {
+      "type": "A",
+      "entity_name": "PacienteA",
+      "description": "Outpatient-type radiology patients (scheduled / ambulatory)."
+    },
+    {
+      "type": "S",
+      "entity_name": "PacienteS",
+      "description": "Emergency / urgent radiology patients (walk-in emergencies)."
+    },
+    {
+      "type": "H",
+      "entity_name": "PacienteH",
+      "description": "Inpatient radiology requests (hospitalized patients)."
+    },
+    {
+      "type": "D",
+      "entity_name": "PacienteD",
+      "description": "Day-hospital radiology patients (short-stay/one-day-stand)."
+    }
+  ]
+}

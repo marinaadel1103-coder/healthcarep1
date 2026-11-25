@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "executed_notebook_code_cells": 8,
+  "verified": [
+    "event keys and source isolation",
+    "ambiguous links remain unassigned",
+    "every expected OPD source-stage association preserved exactly once",
+    "all 3503 radiology waits and scan durations reconcile",
+    "radiology context joins preserve all 27343 event rows",
+    "resource snapshots have unique relative-time keys",
+    "full, projected and chunked loading agree on row count"
+  ],
+  "benchmark_note": "Measured locally, with OS filesystem cache possible. Dataframe deep memory is not total/peak process RAM. Chunk memory is the largest chunk, not total retained memory."
+}

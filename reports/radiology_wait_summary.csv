@@ -1,0 +1,8 @@
+﻿modality,exams,median_wait_minutes,mean_wait_minutes,p95_wait_minutes
+CBCT,17,0.0,0.588,2.0
+CT,417,10.0,16.412,56.2
+MRI,521,8.0,13.848,45.0
+Mammo,141,3.0,13.574,55.0
+Other,392,0.0,0.133,0.0
+US,587,0.0,6.145,20.0
+X-ray,1428,2.0,4.377,10.0

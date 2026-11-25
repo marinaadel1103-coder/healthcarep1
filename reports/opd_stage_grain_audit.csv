@@ -1,0 +1,6 @@
+﻿stage,source_rows,natural_ids,record_variants,ids_linked_to_multiple_visits,ids_with_multiple_payloads,eligible_nonnegative_intervals
+appointment,62422,49912,49912,0,0,0
+prescription,62422,50568,50568,0,0,50501
+lab,18029,17083,17838,606,630,12156
+imaging,5523,5360,5360,60,0,5026
+pharmacy,302,262,298,0,36,226
